@@ -20,6 +20,7 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home_template');
+		$data = array('title' => 'SIMUI Home' );
+		$this->load->view('home_template',$data);
 	}
 }
