@@ -7,13 +7,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 4, from LayoutIt!</title>
+    <title>Sistem Informasi Mahasiswa Universitas Indonesia</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
 
   </head>
   <body>
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="navbar-toggler-icon"></span>
-				</button> <a class="navbar-brand" href="#">Brand</a>
+				</button> <a class="navbar-brand" href="#">SIMUI</a>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
@@ -400,8 +400,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
-    <script assets="js/jquery.min.js"></script>
-    <script assets="js/bootstrap.min.js"></script>
-    <script assets="js/scripts.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
   </body>
 </html>
