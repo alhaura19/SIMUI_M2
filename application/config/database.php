@@ -72,6 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
+// ini adalah koneksi ke db postgre di heroku simui.appheroku.com
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $db['default'] = array(
 	'dsn'	=> '',
