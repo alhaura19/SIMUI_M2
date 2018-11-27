@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <left><a class="btn btn-primary" role="button" data-toggle="modal" href="<?php echo base_url() ?>home/logout/">Logout</a><left>
         </li>
         <li class="nav-item align-right">
-          <p class="align-center">Selamat Datang <b><?=$username?></b> di halaman Administrator System</p>
+          
         </li>
       </ul>
     </div>
