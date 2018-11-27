@@ -81,31 +81,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
+          <h5 class="modal-title" id="modalLabel">Silahkan Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         </div>
         <div class="modal-body">
-          <form class="form-sigin" role="form" id="f_login" method="POST" action="<?php echo base_url('home') ?>">
+          <form class="form-sigin" role="form" id="login" method="POST" action="<?php echo base_url('home') ?>">
             <div class="form-group">
               <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" name="username" id="username" placeholder="username" autofocus>
+              <input type="text" class="form-control" name="username" id="username" placeholder="Masukan username" autofocus>
               <?php echo form_error('username'); ?>
             </div>
             <div class="form-group">
               <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" name="password" id="password" placeholder="Enter password">
+              <input type="text" class="form-control" name="password" id="password" placeholder="Masukan password">
               <?php echo form_error('password'); ?>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-            <button type="submit" name="btn-login" id="btn-login" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
+          <button type="submit" name="btn-login" id="btn-login" class="btn btn-primary" ><span class="glyphicon glyphicon-off"></span> Login</button>
         </div>
       </div>
     </div>
