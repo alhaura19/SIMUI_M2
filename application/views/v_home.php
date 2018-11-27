@@ -21,32 +21,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
   <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">SIMUI</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item align-right">
-          <a class="nav-link" href="#"> Organisasi</a>
-        </li>
-        <li class="nav-item align-right">
-          <a class="nav-link" href="#"> Kepanitiaan</a>
-        </li>
-        <li class="nav-item align-right">
-          <a class="nav-link" href="#"> Event</a>
-        </li>
-        <li class="nav-item align-right">
-        </li>
-      </ul>
-      <a class="btn btn-primary float-right" role="button" data-toggle="modal" href="#login">Login</a>
-    </div>
-  </nav>
-</header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">SIMUI</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item align-right">
+            <a class="nav-link" href="#"> Organisasi</a>
+          </li>
+          <li class="nav-item align-right">
+            <a class="nav-link" href="#"> Kepanitiaan</a>
+          </li>
+          <li class="nav-item align-right">
+            <a class="nav-link" href="#"> Event</a>
+          </li>
+          <li class="nav-item align-right">
+          </li>
+        </ul>
+        <a class="btn btn-primary float-right" role="button" data-toggle="modal" href="#login">Login</a>
+      </div>
+    </nav>
+  </header>
 
   <main role="main">
     <div class="container-fluid ">
@@ -69,9 +69,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </main>
 
   <footer class="footer">
-  <div class="container">
-    <span class="text-muted"><strong>Copyright BASDAT M2 Team</strong> 2018</span>
-  </div>
+    <div class="container">
+      <span class="text-muted"><strong>Copyright BASDAT M2 Team</strong> 2018</span>
+    </div>
   </footer>
 
   <!-- Modal -->
@@ -83,8 +83,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="modal-header">
           <h5 class="modal-title" id="modalLabel">Silahkan Login</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
           <form class="form-sigin" role="form" id="login" method="POST" action="<?php echo base_url('home') ?>">
@@ -101,11 +101,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" name="btn-login" id="btn-login" class="btn btn-primary" ><span class="glyphicon glyphicon-off"></span> Login</button>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-group">
+              <button type="submit" name="btn-login" id="btn-login" class="btn btn-primary" ><span class="glyphicon glyphicon-off"></span> Login</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
