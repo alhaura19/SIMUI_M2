@@ -13,10 +13,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title>Sistem Informasi Mahasiswa Universitas Indonesia</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="<?php echo base_url('assets/css/main.css') ?>" rel="stylesheet">
 </head>
 
 <body>
@@ -39,6 +39,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a class="btn btn-secondary" href="#" role="button">Daftar</a>
         </li>
       </ul>
+      <form class="form-sigin form-inline" action="<?php echo base_url('') ?>" method="POST">
+  <div class="form-group">
+    <input type="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="username" autofocus>
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
     </div>
   </nav>
 
@@ -69,7 +78,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </main>
 
   <footer class="container-fluid">
-    <p>&copy; Company 2017-2018</p>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+      <p class="navbar-text"><strong>Copyright BASDAT M2 Team</strong> 2018 <br>
+    Halaman ini dimuat dalam waktu <strong>{elapsed_time}</strong> detik.<br>
+    <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+    </div>
+  </nav>
   </footer>
 
   <!-- Modal -->
@@ -83,19 +98,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body">
-          <form role="form">
+          <form class="form-sigin" role="form" id="f_login" method="POST" action="<?php echo base_url('home') ?>">
             <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" name="username" id="username" placeholder="username" autofocus>
+              <?php echo form_error('username'); ?>
             </div>
             <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="text" class="form-control" name="password" id="password" placeholder="Enter password">
+              <?php echo form_error('password'); ?>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-            <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+            <button type="submit" name="btn-login" id="btn-login" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -110,8 +127,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
-  <script src="/assets/js/popper.min.js"></script>
-  <script src="/assets/js/bootstrap.min.js"></script>
+  <script>window.jQuery || document.write('<script src="<?php echo base_url('/assets/js/vendor/jquery.min.js') ?>"><\/script>')</script>
+  <script src="<?php echo base_url('/assets/js/popper.min.js') ?>"></script>
+  <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 </body>
 </html>
