@@ -1,0 +1,106 @@
+ALTER TABLE OPEN_RECRUITMENT ADD COLUMN jumlah_pendaftar INT
+DEFAULT 0;
+
+CREATE OR REPLACE FUNCTION update_jumlah_daftar_oprec_fungsi()
+RETURNS void AS
+$$
+DECLARE
+row RECORD;
+BEGIN
+FOR row IN
+SELECT e.id_oprec AS IDoprec, COUNT(pe.*) AS jumlah_daftar
+FROM open_recruitment e, pendaftaran_oprec pe
+WHERE e.id_oprec = pe.id_oprec
+GROUP BY e.id_oprec, pe.id_oprec
+LOOP
+UPDATE open_recruitment SET jumlah_pendaftar = row.jumlah_daftar
+WHERE id_oprec = row.IDoprec;
+END LOOP;
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT update_jumlah_daftar_oprec_fungsi();
+
+CREATE OR REPLACE FUNCTION update_jumlah_daftar_oprec()
+RETURNS trigger AS
+$$
+DECLARE
+row RECORD;
+BEGIN
+IF (TG_OP = 'INSERT' OR TG_OP = 'DELETE') THEN
+FOR row IN
+SELECT e.id_oprec AS IDoprec, COUNT(pe.*) AS jumlah_daftar
+FROM open_recruitment e, pendaftaran_oprec pe
+WHERE e.id_oprec = pe.id_oprec
+GROUP BY e.id_oprec, pe.id_oprec
+LOOP
+UPDATE open_recruitment SET jumlah_pendaftar = row.jumlah_daftar
+WHERE id_oprec = row.IDoprec;
+END LOOP;
+RETURN NEW;
+END IF;
+END;
+$$
+LANGUAGE plpgsql;
+
+
+CREATE TRIGGER update_jumlah_peserta_daftar_oprec_trigger
+AFTER INSERT OR DELETE
+ON pendaftaran_oprec FOR EACH ROW
+EXECUTE PROCEDURE update_jumlah_daftar_oprec();
+
+
+ALTER TABLE EVENT ADD COLUMN jumlah_pendaftar INT
+DEFAULT 0;
+
+CREATE OR REPLACE FUNCTION update_jumlah_daftar_event_fungsi()
+RETURNS void AS
+$$
+DECLARE
+row RECORD;
+BEGIN
+FOR row IN
+SELECT e.id_event AS IDevent, COUNT(pe.*) AS jumlah_daftar
+FROM event e, pendaftaran_event pe
+WHERE e.id_event = pe.id_event
+GROUP BY e.id_event, pe.id_event
+LOOP
+UPDATE event SET jumlah_pendaftar = row.jumlah_daftar
+WHERE id_event = row.IDevent;
+END LOOP;
+END;
+$$
+LANGUAGE plpgsql;
+
+
+SELECT update_jumlah_daftar_event_fungsi();
+
+
+CREATE OR REPLACE FUNCTION update_jumlah_daftar_event()
+RETURNS trigger AS
+$$
+DECLARE
+row RECORD;
+BEGIN
+IF (TG_OP = 'INSERT' OR TG_OP = 'DELETE') THEN
+FOR row IN
+SELECT e.id_event AS IDevent, COUNT(pe.*) AS jumlah_daftar
+FROM event e, pendaftaran_event pe
+WHERE e.id_event = pe.id_event
+GROUP BY e.id_event, pe.id_event
+LOOP
+UPDATE event SET jumlah_pendaftar = row.jumlah_daftar
+WHERE id_event = row.IDevent;
+END LOOP;
+RETURN NEW;
+END IF;
+END;
+$$
+LANGUAGE plpgsql;
+
+
+CREATE TRIGGER update_jumlah_peserta_daftar_event_trigger
+AFTER INSERT OR DELETE
+ON pendaftaran_event FOR EACH ROW
+EXECUTE PROCEDURE update_jumlah_daftar_event();
