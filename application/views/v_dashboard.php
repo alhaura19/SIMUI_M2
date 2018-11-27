@@ -24,7 +24,11 @@ $this->simple_login->cek_login();
 <body>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">SIMUI</a>
+    <a class="navbar-brand" href="#">SIMUI
+      <!-- munculkan type user setelah mana simui -->
+    <?php if (isset($_SESSION['type'])) {
+      echo $_SESSION['type'];
+    } ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

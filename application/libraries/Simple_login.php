@@ -16,6 +16,17 @@ class Simple_login {
 			$this->CI->session->set_userdata('username', $username);
 			$this->CI->session->set_userdata('id_login', uniqid(rand()));
 			$this->CI->session->set_userdata('id', $id);
+
+			$query = $this->CI->db->get_where('admin',array('username'=>$username));
+			if ($query->num_rows()==1) {
+				$row0 	= $this->CI->db->query("SELECT username FROM simui.admin where username ='".$username."'");
+				$this->CI->session->set_userdata('type', 'Admin');
+			}
+			$query = $this->CI->db->get_where('pendaftaran_event',array('username'=>$username));
+			if ($query->num_rows()==1) {
+				$row1 	= $this->CI->db->query("SELECT username FROM simui.pendaftaran_event where username ='".$username."'");
+				$this->CI->session->set_userdata('type', 'Humas');
+			}
 			redirect(base_url('dashboard'));
 		}else{
 			$this->CI->session->set_flashdata('sukses','Oops... Username/password salah');
