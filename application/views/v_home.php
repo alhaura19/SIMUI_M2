@@ -20,71 +20,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-
+  <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">SIMUI</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item align-right">
-          <a class="btn btn-primary" role="button" data-toggle="modal" href="#login">Login</a>
+          <a class="nav-link" href="#"> Organisasi</a>
         </li>
         <li class="nav-item align-right">
-          <a class="btn btn-secondary" href="#" role="button">Daftar</a>
+          <a class="nav-link" href="#"> Kepanitiaan</a>
+        </li>
+        <li class="nav-item align-right">
+          <a class="nav-link" href="#"> Event</a>
+        </li>
+        <li class="nav-item align-right">
         </li>
       </ul>
-      <form class="form-sigin form-inline" action="<?php echo base_url('') ?>" method="POST">
-  <div class="form-group">
-    <input type="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="username" autofocus>
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      <a class="btn btn-primary float-right" role="button" data-toggle="modal" href="#login">Login</a>
     </div>
   </nav>
+</header>
 
   <main role="main">
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <!-- Example row of columns -->
       <div class="row">
-      </div>
-      <div class="row">
-        <div class="col-md-4 border" >
+        <div class="col-md-4 border pt-4" >
           <h2>Organisasi</h2>
           <p><a class="btn btn-secondary" href="#" role="button">Lihat Organisasi &raquo;</a></p>
         </div>
-        <div class="col-md-4 border ">
+        <div class="col-md-4 border pt-4">
           <h2>Kepanitiaan</h2>
           <p><a class="btn btn-secondary" href="#" role="button">Lihat Kepanitiaan &raquo;</a></p>
         </div>
-        <div class="col-md-4 border" >
+        <div class="col-md-4 border pt-4" >
           <h2>Event</h2>
           <p><a class="btn btn-secondary" href="#" role="button">Lihat Event &raquo;</a></p>
         </div>
       </div>
-
-      <hr>
-
     </div> <!-- /container -->
-
   </main>
 
-  <footer class="container-fluid">
-    <nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container-fluid">
-      <p class="navbar-text"><strong>Copyright BASDAT M2 Team</strong> 2018 <br>
-    Halaman ini dimuat dalam waktu <strong>{elapsed_time}</strong> detik.<br>
-    <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-    </div>
-  </nav>
+  <footer class="footer">
+  <div class="container">
+    <span class="text-muted"><strong>Copyright BASDAT M2 Team</strong> 2018</span>
+  </div>
   </footer>
 
   <!-- Modal -->

@@ -36,6 +36,6 @@ class Simple_login {
 		$this->CI->session->unset_userdata('id_login');
 		$this->CI->session->unset_userdata('id');
 		$this->CI->session->set_flashdata('sukses','Anda berhasil logout');
-		redirect(base_url('login'));
+		redirect(base_url('home'));
 	}
 }

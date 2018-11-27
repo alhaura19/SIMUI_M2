@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// Proteksi halaman
+$this->simple_login->cek_login();
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,15 +32,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<?php echo base_url('home') ?>">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item align-right">
-          <left><a class="btn btn-primary" role="button" data-toggle="modal" href="<?php echo base_url() ?>home/logout/">Logout</a><left>
+          <a class="nav-link" href="#"> Organisasi</a>
         </li>
         <li class="nav-item align-right">
-          
+          <a class="nav-link" href="#"> Kepanitiaan</a>
+        </li>
+        <li class="nav-item align-right">
+          <a class="nav-link" href="#"> Event</a>
+        </li>
+        <li class="nav-item align-right">
         </li>
       </ul>
+      <right><a class="btn btn-primary float-right" role="button"  href="<?php echo base_url('home/logout') ?>">Logout</a><right>
     </div>
   </nav>
 
@@ -46,30 +54,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container-fluid">
       <!-- Example row of columns -->
       <div class="row">
-      </div>
-      <div class="row">
-        <div class="col-md-4 border" >
+        <div class="col-md-4 border pt-4" >
           <h2>Organisasi</h2>
           <p><a class="btn btn-secondary" href="#" role="button">Lihat Organisasi &raquo;</a></p>
         </div>
-        <div class="col-md-4 border ">
+        <div class="col-md-4 border pt-4">
           <h2>Kepanitiaan</h2>
           <p><a class="btn btn-secondary" href="#" role="button">Lihat Kepanitiaan &raquo;</a></p>
         </div>
-        <div class="col-md-4 border" >
+        <div class="col-md-4 border pt-4" >
           <h2>Event</h2>
           <p><a class="btn btn-secondary" href="#" role="button">Lihat Event &raquo;</a></p>
         </div>
       </div>
-
-      <hr>
-
     </div> <!-- /container -->
 
   </main>
 
-  <footer class="container-fluid">
-    <p>&copy; Company 2017-2018</p>
+  <footer class="footer">
+  <div class="container">
+    <span class="text-muted"><strong>Copyright BASDAT M2 Team</strong> 2018</span>
+  </div>
   </footer>
 
   <!-- Bootstrap core JavaScript

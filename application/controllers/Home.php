@@ -18,7 +18,7 @@ class Home extends CI_Controller {
 	* map to /index.php/welcome/<method_name>
 	* @see https://codeigniter.com/user_guide/general/urls.html
 	*/
-	
+
 
 	public function index()
 	{
@@ -35,7 +35,6 @@ class Home extends CI_Controller {
 		$data = array('title' => 'Halaman Home' );
 		$this->load->view('v_home',$data);
 	}
-
 
 	//logout disini
 	function logout() {
