@@ -8,7 +8,7 @@ class c_organisasi extends CI_Controller {
 		
 		#$this->load->helper('url');
 		
-		$this->load->view('v_organisasi', $this->$data);
+		$this->load->view('v_organisasi');
 
     }
 }
