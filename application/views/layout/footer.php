@@ -25,7 +25,7 @@
           </div>
           <div class="form-group">
             <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-            <input type="text" class="form-control" name="password" id="password" placeholder="Masukan password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Masukan password">
             <?php echo form_error('password'); ?>
           </div>
           <div class="checkbox">
