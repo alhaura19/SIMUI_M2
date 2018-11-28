@@ -16,12 +16,11 @@ require_once ('layout/navbar.php');
               <li class="price">
                 DAFTAR ORGANISASI
               </li>
-
-              <li>Organisasi 1</li>
-              <li>Organisasi 2</li>
-              <li>Organisasi 3</li>
-              <li>Organisasi 4</li>
-              <li>Organisasi 5</li>
+              <?php
+              foreach ($data_organisasi as $home_organisasi) {
+               ?>
+              <li><?php echo $home_organisasi->id_organisasi ?></li>
+            <?php } ?>
             </ul>
             <div class="pricing-footer">
               <a class="btn btn-secondary" href="<?php echo base_url('c_organisasi'); ?>" role="button">Lihat Organisasi &raquo;</a>
@@ -36,12 +35,11 @@ require_once ('layout/navbar.php');
               <li class="price">
                 DAFTAR KEPANITIAAN
               </li>
-
-              <li>Kepanitiaan 1</li>
-              <li>Kepanitiaan 2</li>
-              <li>Panitiaan Web Designing</li>
-              <li>Panitiaan Logo Assesment</li>
-              <li>Panitia Digital Marketing</li>
+              <?php
+              foreach ($data_kepanitiaan as $home_kepanitiaan) {
+               ?>
+              <li><?php echo $home_kepanitiaan->id_kepanitiaan ?></li>
+            <?php } ?>
             </ul>
             <div class="pricing-footer">
               <a class="btn btn-secondary" href="index.php/c_kepanitiaan" role="button">Lihat Kepanitiaan &raquo;</a>

@@ -40,7 +40,9 @@ class Home extends CI_Controller {
 		// End fungsi login
 		$data = array(
 			'title' => 'Halaman Home',
-			'data_event' => $this->m_home->get_all(),
+			'data_event' => $this->m_home->get_event(),
+			'data_kepanitiaan' => $this->m_home->get_kepanitiaan(),
+			'data_organisasi' => $this->m_home->get_organisasi(),
 		);
 		$this->load->view('v_home',$data);
 	}
