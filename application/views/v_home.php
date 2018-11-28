@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
         <div class="col-md-4 border pt-4" >
           <h2>Organisasi</h2>
-          <p><a class="btn btn-secondary" href="index.php/c_organisasi" role="button">Lihat Organisasi &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="<?php echo base_url('c_organisasi'); ?>" role="button">Lihat Organisasi &raquo;</a></p>
         </div>
         <div class="col-md-4 border pt-4">
           <h2>Kepanitiaan</h2>
