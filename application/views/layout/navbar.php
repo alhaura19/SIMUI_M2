@@ -1,7 +1,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="https://simui.herokuapp.com/"><img src="<?php echo base_url('assets/logo/fasilkom.png') ?>" width="30" height="30" class="d-inline-block align-top" alt=""> SIMUI
+      <a class="navbar-brand" href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('assets/logo/fasilkom.png') ?>" width="30" height="30" class="d-inline-block align-top" alt=""> SIMUI
         <?php if (isset($_SESSION['type'])) {
         echo $_SESSION['type'];
       } ?></a>
