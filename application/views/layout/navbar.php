@@ -25,12 +25,11 @@
           <li class="nav-item align-right">
           </li>
         </ul>
-
         <?php
         if (isset($_SESSION['type'])) {
-          require_once ('tombol_logout.php');
+          include ('tombol_logout.php');
         }else {
-          require_once ('tombol_login.php');
+          include ('tombol_login.php');
         }
          ?>
       </div>
