@@ -1,113 +1,175 @@
+
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+// memanggil isi header
+require_once ('layout/head.php');
+// memanggil isis navbar
+require_once ('layout/navbar.php');
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="/favicon.ico">
+<!-- Isi konten dimulai dari sini -->
+<main role="main">
+	<div class="container">
+	<div class="row">
+		<div class="col-md-12 pt-4">
+			<h4>Bootstrap Snipp for Datatable</h4>
+			<div class="table-responsive">
 
-  <title>Sistem Informasi Mahasiswa Universitas Indonesia</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+				<table id="mytable" class="table table-bordred table-striped">
 
-  <!-- Custom styles for this template -->
-  <link href="<?php echo base_url('assets/css/main.css') ?>" rel="stylesheet">
-</head>
+					<thead>
 
-<body>
+						<th><input type="checkbox" id="checkall" /></th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Address</th>
+						<th>Email</th>
+						<th>Contact</th>
+						<th>Edit</th>
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">SIMUI</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+						<th>Delete</th>
+					</thead>
+					<tbody>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item align-right">
-          <a class="btn btn-primary" role="button" data-toggle="modal" href="#login">Login</a>
-        </li>
-        <li class="nav-item align-right">
-          <a class="btn btn-secondary" href="#" role="button">Daftar</a>
-        </li>
-      </ul>
-      <form class="form-sigin form-inline" action="<?php echo base_url('') ?>" method="POST">
-  <div class="form-group">
-    <input type="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="username" autofocus>
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-    </div>
-  </nav>
+						<tr>
+							<td><input type="checkbox" class="checkthis" /></td>
+							<td>Mohsin</td>
+							<td>Irshad</td>
+							<td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+							<td>isometric.mohsin@gmail.com</td>
+							<td>+923335586757</td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+						</tr>
 
-	<main role="main">
- 
+						<tr>
+							<td><input type="checkbox" class="checkthis" /></td>
+							<td>Mohsin</td>
+							<td>Irshad</td>
+							<td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+							<td>isometric.mohsin@gmail.com</td>
+							<td>+923335586757</td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+						</tr>
 
-	</main>
 
-  <footer class="container-fluid">
-    <nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container-fluid">
-      <p class="navbar-text"><strong>Copyright BASDAT M2 Team</strong> 2018 <br>
-    Halaman ini dimuat dalam waktu <strong>{elapsed_time}</strong> detik.<br>
-    <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-    </div>
-  </nav>
-  </footer>
+						<tr>
+							<td><input type="checkbox" class="checkthis" /></td>
+							<td>Mohsin</td>
+							<td>Irshad</td>
+							<td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+							<td>isometric.mohsin@gmail.com</td>
+							<td>+923335586757</td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+						</tr>
 
-  <!-- Modal -->
-  <div class="modal fade" id="login" role="dialog">
-    <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-sigin" role="form" id="f_login" method="POST" action="<?php echo base_url('home') ?>">
-            <div class="form-group">
-              <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" name="username" id="username" placeholder="username" autofocus>
-              <?php echo form_error('username'); ?>
-            </div>
-            <div class="form-group">
-              <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" name="password" id="password" placeholder="Enter password">
-              <?php echo form_error('password'); ?>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
-            <button type="submit" name="btn-login" id="btn-login" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="<?php echo base_url('/assets/js/vendor/jquery.min.js') ?>"><\/script>')</script>
-  <script src="<?php echo base_url('/assets/js/popper.min.js') ?>"></script>
-  <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
-</body>
-</html>
+
+						<tr>
+							<td><input type="checkbox" class="checkthis" /></td>
+							<td>Mohsin</td>
+							<td>Irshad</td>
+							<td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+							<td>isometric.mohsin@gmail.com</td>
+							<td>+923335586757</td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+						</tr>
+
+
+						<tr>
+							<td><input type="checkbox" class="checkthis" /></td>
+							<td>Mohsin</td>
+							<td>Irshad</td>
+							<td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+							<td>isometric.mohsin@gmail.com</td>
+							<td>+923335586757</td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+							<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+						</tr>
+
+
+
+
+
+					</tbody>
+
+				</table>
+
+				<div class="clearfix"></div>
+				<ul class="pagination pull-right">
+					<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+				<h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<input class="form-control " type="text" placeholder="Mohsin">
+				</div>
+				<div class="form-group">
+
+					<input class="form-control " type="text" placeholder="Irshad">
+				</div>
+				<div class="form-group">
+					<textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+
+
+				</div>
+			</div>
+			<div class="modal-footer ">
+				<button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+
+
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+				<h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+			</div>
+			<div class="modal-body">
+
+				<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+
+			</div>
+			<div class="modal-footer ">
+				<button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div> <!-- /container -->
+</main>
+<?php
+// memanggil isi footter
+require_once ('layout/footer.php');
+?>
