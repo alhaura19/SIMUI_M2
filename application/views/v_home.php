@@ -56,13 +56,11 @@ require_once ('layout/navbar.php');
               <li class="price">
                 DAFTAR EVENT
               </li>
-
-              <li>Event Web Designing</li>
-              <li>Event Logo Assesment</li>
-              <li>Event Digital Marketing</li>
-              <li>Event Web Designing</li>
-              <li>Event Logo Assesment</li>
-              <li>Event Digital Marketing</li>
+              <?php
+              foreach ($data_event as $home_event) {
+               ?>
+              <li><?php echo $home_event->nama ?></li>
+            <?php } ?>
             </ul>
             <div class="pricing-footer">
               <a class="btn btn-secondary" href="index.php/c_event" role="button">Lihat Event &raquo;</a>

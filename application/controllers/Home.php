@@ -18,7 +18,13 @@ class Home extends CI_Controller {
 	* map to /index.php/welcome/<method_name>
 	* @see https://codeigniter.com/user_guide/general/urls.html
 	*/
+	public function __construct()
+	{
+		parent ::__construct();
 
+		//load model
+		$this->load->model('m_home');
+	}
 
 	public function index()
 	{
@@ -32,7 +38,10 @@ class Home extends CI_Controller {
 			$this->simple_login->login($username,$password, base_url('dashboard'), base_url('home'));
 		}
 		// End fungsi login
-		$data = array('title' => 'Halaman Home' );
+		$data = array(
+			'title' => 'Halaman Home',
+			'data_event' => $this->m_home->get_all(),
+		);
 		$this->load->view('v_home',$data);
 	}
 
