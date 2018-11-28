@@ -7,7 +7,7 @@ class C_kepanitiaan extends CI_Controller {
 		parent ::__construct();
 		
 		//load model
-		$this->load->model('m_kepanitiaan');
+		$this->load->model('M_kepanitiaan');
 
 	}*/
 	
@@ -24,7 +24,7 @@ class C_kepanitiaan extends CI_Controller {
 			'id_kepanitiaan'       => $this->input->post("id_kepanitiaan"),
 			'id_organisasi'         => $this->input->post("id_organisasi")
 		);
-		$this->m_kepanitiaan->simpan($data);
+		$this->M_kepanitiaan->simpan($data);
 		$this->session->set_flashdata('info', 'Success! data berhasil disimpan didatabase');
 	}
 	
@@ -33,7 +33,7 @@ class C_kepanitiaan extends CI_Controller {
 		$id_kepanitiaan = $this->uri->segment(3);
 		$data = array(
 			'title'	=> 'Edit Kepanitiaan',
-			'nama' => $this->m_kepanitiaan->edit($id_kepanitiaan)
+			'nama' => $this->model_kepanitiaan->edit($id_kepanitiaan)
 		);
 		$this->load->view('edit_kepanitiaan', $data);
 	}
@@ -44,7 +44,7 @@ class C_kepanitiaan extends CI_Controller {
 		$data = array(
 			'id_organisasi'         => $this->input->post("id_organisasi")
 		);
-		$this->m_kepanitiaan->update($data, $id);
+		$this->model_kepanitiaan->update($data, $id);
 		$this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil diupdate didatabase.
                                                 </div>');
 		//redirect
@@ -54,7 +54,7 @@ class C_kepanitiaan extends CI_Controller {
 	public function hapus($id_buku)
 	{
 		$id['id_kepanitiaan'] = $this->uri->segment(3);
-		$this->m_kepanitiaan->hapus($id);
+		$this->model_kepanitiaan->hapus($id);
 		
 		//redirect
 		//redirect('buku/');
