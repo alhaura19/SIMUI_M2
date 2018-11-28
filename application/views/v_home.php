@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li class="nav-item align-right">
           </li>
         </ul>
-        <a class="btn btn-primary float-right" role="button" data-toggle="modal" href="#login">Login</a>
+        <a class="btn btn-primary float-right" role="button" data-toggle="modal" href="#login"><span class="glyphicon glyphicon-log-in"></span>Login</a>
       </div>
     </nav>
   </header>
