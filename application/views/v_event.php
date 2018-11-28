@@ -9,7 +9,9 @@ require_once ('layout/navbar.php');
   <div class="container">
     <div class="row">
       <div class="col-md-12 pt-4">
+        <?php if (isset($_SESSION['type'])) { ?>
         <a href="#tambah_event" class="btn btn-md btn-success">Tambah Event</a>
+        <?php } ?>
         <hr>
         <div class="table-responsive">
           <table id="table" class="table table-sm table-condensed table-bordred table-striped table-hover">
