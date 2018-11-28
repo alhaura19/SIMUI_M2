@@ -7,7 +7,7 @@ class C_kepanitiaan extends CI_Controller {
 		parent ::__construct();
 		
 		//load model
-		$this->load->model('m_event');
+		$this->load->model('m_kepanitiaan');
 
 	}*/
 	
