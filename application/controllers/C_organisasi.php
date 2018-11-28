@@ -22,7 +22,7 @@ class C_organisasi extends CI_Controller {
 		$data = array(
 			'id_organisasi'         => $this->input->post("id_organisasi")
 		);
-		$this->M_organisasi->simpan($data);
+		$this->model_organisasi->simpan($data);
 		$this->session->set_flashdata('info', 'Success! data berhasil disimpan didatabase');
 	}
 	
@@ -42,7 +42,7 @@ class C_organisasi extends CI_Controller {
 		$data = array(
 			'nama'         => $this->input->post("nama")
 		);
-		$this->M_organisasi->update($data, $id);
+		$this->model_organisasi->update($data, $id);
 		$this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Success! data berhasil diupdate didatabase.
                                                 </div>');
 		//redirect
@@ -52,7 +52,7 @@ class C_organisasi extends CI_Controller {
 	public function hapus($id_organisasi)
 	{
 		$id['id_organisasi'] = $this->uri->segment(3);
-		$this->M_organisasi->hapus($id);
+		$this->model_organisasi->hapus($id);
 		
 		//redirect
 		//redirect('buku/');
