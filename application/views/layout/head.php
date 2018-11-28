@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// Proteksi halaman
+// $this->simple_login->cek_login();
 ?>
 <!doctype html>
 <html lang="en">
