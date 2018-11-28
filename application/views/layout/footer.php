@@ -43,22 +43,14 @@
 </div>
 <!--awal JS Untuk table -->
 <script type="text/javascript">
-$(document).ready(function(){
-$("#mytable #checkall").click(function () {
-        if ($("#mytable #checkall").is(':checked')) {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", true);
-            });
-
-        } else {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", false);
-            });
-        }
+/** JavaScript untuk fungsi alert */
+$(window).bind("load", function() {
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function() {
+      $(this).remove();
     });
-
-    $("[data-toggle=tooltip]").tooltip();
-});
+  }, 500);
+})
 </script>
 <!-- akhir JS untu tabel -->
 <!-- Bootstrap core JavaScript
@@ -70,5 +62,12 @@ $("#mytable #checkall").click(function () {
 <script src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $('#table').DataTable( {
+    autoFill: true
+} );
+</script>
 </body>
 </html>

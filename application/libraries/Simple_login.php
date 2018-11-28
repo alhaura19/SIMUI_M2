@@ -27,9 +27,10 @@ class Simple_login {
 				$row1 	= $this->CI->db->query("SELECT username FROM simui.pendaftaran_event where username ='".$username."'");
 				$this->CI->session->set_userdata('type', 'Humas');
 			}
+			$this->CI->session->set_flashdata('success','Selamat Datang '.$username);
 			redirect(base_url('dashboard'));
 		}else{
-			$this->CI->session->set_flashdata('sukses','Oops... Username/password salah');
+			$this->CI->session->set_flashdata('error','Oops... Username/password salah');
 			redirect(base_url('home'));
 		}
 		return false;
@@ -37,7 +38,7 @@ class Simple_login {
 	// Proteksi halaman
 	public function cek_login() {
 		if($this->CI->session->userdata('username') == '') {
-			$this->CI->session->set_flashdata('sukses','Anda belum login');
+			$this->CI->session->set_flashdata('warning','Anda belum login');
 			redirect(base_url('home'));
 		}
 	}
@@ -47,7 +48,7 @@ class Simple_login {
 		$this->CI->session->unset_userdata('id_login');
 		$this->CI->session->unset_userdata('id');
 		$this->CI->session->unset_userdata('type');
-		$this->CI->session->set_flashdata('sukses','Anda berhasil logout');
+		$this->CI->session->set_flashdata('success','Anda berhasil logout');
 		redirect(base_url('home'));
 	}
 }

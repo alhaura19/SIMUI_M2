@@ -9,11 +9,6 @@ require_once ('layout/navbar.php');
   <div class="container-fluid">
     <!-- Example row of columns -->
     <div class="row">
-      <div class="alert alert-info" role="alert">
-        Selamat Datang <?php echo $_SESSION['username']; ?>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-md-4 border pt-4" >
         <h2>Organisasi</h2>
         <p><a class="btn btn-secondary" href="#" role="button">Lihat Organisasi &raquo;</a></p>

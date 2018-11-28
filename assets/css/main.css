@@ -22,14 +22,22 @@ body {
   background-color: #f5f5f5;
 }
 
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
+th {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+}
+td{
+  font-size: 14px
+}
 
 body > .container {
   padding-top: 60px;
   padding-bottom: 60px;
+}
+
+body > .table {
+  font-size: 10px;
 }
 
 .footer > .container {
