@@ -7,24 +7,33 @@ class C_kepanitiaan extends CI_Controller {
 		parent ::__construct();
 		
 		//load model
-		$this->load->model('M_kepanitiaan');
+		$this->load->model('m_kepanitiaan');
 
 	}*/
 	
 	public function index()
 	{
 		$data = array(	'title'	=> 'Kepanitiaan');
-		//'data_kepanitiaan' => $this->m_kepanitian->get_kepatiaan_all()
+		/*'data_kepanitiaan' => $this->m_kepanitiaan->get_kepanitiaan_all(),
+		'dd_kepanitiaan' => $this->m_kepanitiaan->dd_kepanitiaan(),
+		'kepanitiaan_selected' => $this->input->post('kepanitiaan')?$this->input->post('kepanitiaan'):'',
+		'dd_organisasi' => $this->m_kepanitiaan->dd_organisasi(),
+		'organisasi_selected' => $this->input->post('organisasi')?$this->input->post('organisasi'):'',
+		//untuk edit ganti '' menjadi data dari database misal $raw->id_organisasi*/
+		
 		$this->load->view('v_kepanitiaan', $data);
+		$this->load->helper('form_helper');
 	}
 	
 	/*public function simpan()
 	{
 		$data = array(
-			'id_kepanitiaan'       => $this->input->post("id_kepanitiaan"),
-			'id_organisasi'         => $this->input->post("id_organisasi")
+			'id_kepanitiaan' => $this->input->post("id_kepanitiaan"),
+			'id_organisasi' => $this->input->post("id_organisasi"),
+			'nama' => $this->input->post("nama_kepanitiaan")
 		);
-		$this->M_kepanitiaan->simpan($data);
+		
+		$this->m_kepanitiaan->simpan($data);
 		$this->session->set_flashdata('info', 'Success! data berhasil disimpan didatabase');
 	}
 	
