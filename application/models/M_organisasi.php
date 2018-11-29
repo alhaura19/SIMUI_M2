@@ -13,16 +13,16 @@ class M_home extends CI_model{
 
     public function dd_organisasi()
     {
-				$this->db->order_by('id_organisasi','asc');
-    		$result = $this->db->get('organisasi');
-    		$dd[''] = 'Pilih Organisasi';
+	$this->db->order_by('id_organisasi','asc');
+    	$result = $this->db->get('organisasi');
+    	$dd[''] = 'Pilih Organisasi';
 
-    		if ($result->num_rows()>0) {
-    			foreach ($result->result() as $row) {
-						// tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
-						$dd[$row->id_organisasi] = $row->id_organisasi;
-					}
-				}
-			return $dd;
+    	if ($result->num_rows()>0) {
+    		foreach ($result->result() as $row) {
+			// tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
+			$dd[$row->id_organisasi] = $row->id_organisasi;
 		}
+	}
+	return $dd;
+    }
 }
