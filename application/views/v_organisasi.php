@@ -10,7 +10,7 @@ require_once ('layout/navbar.php');
 	<div class="container">
 	<div class="row">
 		<div class="col-md-12 pt-4">
-			<h4>Bootstrap Snipp for Datatable</h4>
+			<h4>Daftar Organisasi</h4>
 			<div class="table-responsive">
 
 

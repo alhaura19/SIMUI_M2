@@ -25,6 +25,26 @@ class M_event extends CI_model{
 
     }
 
+    public function _uploadPoster()
+  	{
+  		$config['upload_path']          = './upload/poster/';
+  		$config['allowed_types']        = 'pdf|gif|jpg|png';
+  		$config['file_name']            = $this->product_id;
+  		$config['overwrite']						= true;
+  		$config['max_size']             = 10240; // 1MB
+  		// $config['max_width']            = 1024;
+  		// $config['max_height']           = 768;
+
+  		$this->load->library('upload', $config);
+
+  		if ($this->upload->do_upload('image')) {
+  			return $this->upload->data("file_name");
+  		}
+
+  		return "default.jpg";
+  	}
+
+
     public function edit($id_buku)
     {
 

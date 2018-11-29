@@ -94,11 +94,11 @@ require_once ('layout/navbar.php');
           </div>
           <div class="form-group">
             <label for="tanggal">Tanggal :</label>
-            <input data-date-format="dd/mm/yyyy" class="form-control" id='datepicker'/>
+            <input data-date-format="dd/mm/yyyy" class="form-control" id='tanggal'/>
           </div>
           <div class="form-group">
             <label for="waktu">Waktu :</label>
-            <div class='input-group date' id='datetimepicker3'>
+            <div class='input-group date' id='waktu'>
               <input type='text' class="form-control" />
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
@@ -107,7 +107,7 @@ require_once ('layout/navbar.php');
           </div>
           <script type="text/javascript">
           $(function () {
-            $('#datetimepicker3').datetimepicker({
+            $('#waktu').datetimepicker({
               format: 'LT'
             });
           });
