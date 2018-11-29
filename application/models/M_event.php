@@ -64,4 +64,49 @@ class M_event extends CI_model{
         }
 
     }
+
+    public function dd_organisasi()
+    {
+      $this->db->order_by('id_organisasi','asc');
+      $result = $this->db->get('organisasi');
+
+      $dd[''] = 'Pilih Organisasi';
+      if ($result->num_rows()>0) {
+        foreach ($result->result() as $row) {
+          // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
+          $dd[$row->id_organisasi] = $row->id_organisasi;
+        }
+      }
+      return $dd;
+    }
+    public function dd_kepanitiaan()
+    {
+      $this->db->order_by('id_kepanitiaan','asc');
+      $result = $this->db->get('kepanitiaan');
+
+      $dd[''] = 'Pilih Kepanitiaan';
+      if ($result->num_rows()>0) {
+        foreach ($result->result() as $row) {
+          // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
+          $dd[$row->id_kepanitiaan] = $row->id_kepanitiaan;
+        }
+      }
+      return $dd;
+    }
+    public function dd_kategori()
+    {
+      $this->db->order_by('nomor','asc');
+      $result = $this->db->get('kategori_event');
+
+      $dd[''] = 'Pilih Kategori Event';
+      if ($result->num_rows()>0) {
+        foreach ($result->result() as $row) {
+          // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
+          $dd[$row->nomor] = $row->nama;
+        }
+      }
+      return $dd;
+    }
+
+
 }

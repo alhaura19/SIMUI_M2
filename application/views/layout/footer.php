@@ -52,10 +52,21 @@ $(window).bind("load", function() {
   }, 500);
 })
 </script>
+<script type="text/javascript">
+//script datepicker
+    $(function () {
+        $('#datepicker').datepicker(
+          {
+            uiLibrary: 'bootstrap4'
+          }
+        );
+    });
+</script>
 <!-- akhir JS untu tabel -->
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="<?php echo base_url('/assets/js/vendor/jquery.min.js') ?>"><\/script>')</script>
 <script src="<?php echo base_url('/assets/js/popper.min.js') ?>"></script>

@@ -18,11 +18,20 @@ class C_event extends CI_Controller {
     	$data = array(
 					'title'	=> 'Event',
 					'data_event' => $this->m_event->get_event_all(),
+					'dd_organisasi' => $this->m_event->dd_organisasi(),
+					'organisasi_selected' => $this->input->post('organisasi')?$this->input->post('organisasi'):'',
+					'dd_kepanitiaan' => $this->m_event->dd_kepanitiaan(),
+					'kepanitiaan_selected' => $this->input->post('kepanitiaan')?$this->input->post('kepanitiaan'):'',
+					'dd_kategori' => $this->m_event->dd_kategori(),
+					'kategori_selected' => $this->input->post('kategori')?$this->input->post('kategori'):'',
+					//untuk edit ganti '' menjadi data dari database misal $raw->id_organisasi
+
 				);
 
 
 
 		$this->load->view('v_event',$data);
+		$this->load->helper('form_helper');
     }
 
 
