@@ -5,8 +5,14 @@ class M_event extends CI_model{
 
     public function get_event_all()
     {
-        $query = $this->db->select("*")
-                 ->from('event')
+//select p.nama as nama_or,e.nama,e.tanggal,e.waktu,e.kapasitas,e.harga_tiket,e.lokasi,e.sifat_event,e.deskripsi_singkat,k.nama as nama_kategori
+// from simui.event e join simui.kategori_event k on e.nomor_kategori=k.nomor join simui.pembuat_event p on e.id_pembuat_event = p.id;
+        $query = $this->db->select("e.nomor_kategori,e.id_pembuat_event,e.id_event,p.nama as nama_or,
+        e.nama,e.tanggal,e.waktu,e.kapasitas,e.harga_tiket,
+        e.lokasi,e.sifat_event,e.deskripsi_singkat,k.nama as nama_kategori,e.jumlah_pendaftar")
+                 ->from('event as e')
+                 ->join('kategori_event as k','e.nomor_kategori = k.nomor')
+                 ->join('pembuat_event as p','e.id_pembuat_event = p.id')
                  ->order_by('tanggal', 'ASC')
                  ->get();
         return $query->result();
@@ -87,28 +93,28 @@ class M_event extends CI_model{
 
     public function dd_organisasi()
     {
-      $this->db->order_by('id_organisasi','asc');
-      $result = $this->db->get('organisasi');
+      $this->db->order_by('nama','asc');
+      $result = $this->db->get('pembuat_event');
 
       $dd[''] = 'Pilih Organisasi';
       if ($result->num_rows()>0) {
         foreach ($result->result() as $row) {
           // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
-          $dd[$row->id_organisasi] = $row->id_organisasi;
+          $dd[$row->id] = $row->nama;
         }
       }
       return $dd;
     }
     public function dd_kepanitiaan()
     {
-      $this->db->order_by('id_kepanitiaan','asc');
-      $result = $this->db->get('kepanitiaan');
+      $this->db->order_by('tanggal_dibuka','asc');
+      $result = $this->db->get('open_recruitment');
 
       $dd[''] = 'Pilih Kepanitiaan';
       if ($result->num_rows()>0) {
         foreach ($result->result() as $row) {
           // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
-          $dd[$row->id_kepanitiaan] = $row->id_kepanitiaan;
+          $dd[$row->id_oprec] = $row->nama;
         }
       }
       return $dd;
