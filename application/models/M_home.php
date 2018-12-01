@@ -15,7 +15,8 @@ class M_home extends CI_model{
     public function get_kepanitiaan()
     {
         $query = $this->db->select("*")
-                 ->from('kepanitiaan')
+                 ->from('open_recruitment')
+                 ->order_by('tanggal_dibuka')
                  ->limit('5')
                  ->get();
         return $query->result();
@@ -23,7 +24,7 @@ class M_home extends CI_model{
     public function get_organisasi()
     {
         $query = $this->db->select("*")
-                 ->from('organisasi')
+                 ->from('pembuat_event')
                  ->limit('5')
                  ->get();
         return $query->result();

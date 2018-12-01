@@ -19,7 +19,7 @@ require_once ('layout/navbar.php');
               <?php
               foreach ($data_organisasi as $home_organisasi) {
                ?>
-              <li><?php echo $home_organisasi->id_organisasi ?></li>
+              <li><?php echo $home_organisasi->nama ?></li>
             <?php } ?>
             </ul>
             <div class="pricing-footer">
@@ -38,7 +38,7 @@ require_once ('layout/navbar.php');
               <?php
               foreach ($data_kepanitiaan as $home_kepanitiaan) {
                ?>
-              <li><?php echo $home_kepanitiaan->id_kepanitiaan ?></li>
+              <li><?php echo $home_kepanitiaan->nama ?></li>
             <?php } ?>
             </ul>
             <div class="pricing-footer">
