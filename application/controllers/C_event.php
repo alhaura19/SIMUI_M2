@@ -59,7 +59,7 @@ class C_event extends CI_Controller {
 
 
 	}
-
+// fungsi ini untuk mengambil data form edit
 	public function edit($id_buku)
 	{
 		$id_buku = $this->uri->segment(3);
@@ -73,7 +73,7 @@ class C_event extends CI_Controller {
 
 		$this->load->view('edit_buku', $data);
 	}
-
+// fungsi ini mengirim data yg di edit
 	public function update()
 	{
 		$id['id_buku'] = $this->input->post("id_buku");
@@ -96,14 +96,18 @@ class C_event extends CI_Controller {
 
 	}
 
-	public function hapus($id_buku)
+	public function hapus($id_event)
 	{
-		$id['id_buku'] = $this->uri->segment(3);
+		if($id_event==""){
+					$this->session->set_flashdata('error',"Data Anda Gagal Di Hapus");
+					redirect('event');
+			}else{
+					$this->db->where('id_event', $id_event);
+					$this->db->delete('event');
+					$this->session->set_flashdata('success',"Data Berhasil Dihapus");
+					redirect('event');
 
-		$this->model_buku->hapus($id);
-
-		//redirect
-		redirect('buku/');
+			}
 
 	}
 

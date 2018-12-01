@@ -8,18 +8,63 @@ require_once ('layout/navbar.php');
 <main role="main">
   <div class="container-fluid">
     <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-md-4 border pt-4" >
-        <h2>Organisasi</h2>
-        <p><a class="btn btn-secondary" href="#" role="button">Lihat Organisasi &raquo;</a></p>
+    <div class="row ">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price">
+                DAFTAR ORGANISASI
+              </li>
+              <?php
+              foreach ($data_organisasi as $home_organisasi) {
+               ?>
+              <li><?php echo $home_organisasi->id_organisasi ?></li>
+            <?php } ?>
+            </ul>
+            <div class="pricing-footer">
+              <a class="btn btn-secondary" href="<?php echo base_url('c_organisasi'); ?>" role="button">Lihat Organisasi &raquo;</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 border pt-4">
-        <h2>Kepanitiaan</h2>
-        <p><a class="btn btn-secondary" href="#" role="button">Lihat Kepanitiaan &raquo;</a></p>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price">
+                DAFTAR KEPANITIAAN
+              </li>
+              <?php
+              foreach ($data_kepanitiaan as $home_kepanitiaan) {
+               ?>
+              <li><?php echo $home_kepanitiaan->id_kepanitiaan ?></li>
+            <?php } ?>
+            </ul>
+            <div class="pricing-footer">
+              <a class="btn btn-secondary" href="index.php/c_kepanitiaan" role="button">Lihat Kepanitiaan &raquo;</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 border pt-4" >
-        <h2>Event</h2>
-        <p><a class="btn btn-secondary" href="#" role="button">Lihat Event &raquo;</a></p>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price">
+                DAFTAR EVENT
+              </li>
+              <?php
+              foreach ($data_event as $home_event) {
+               ?>
+              <li><?php echo $home_event->nama ?></li>
+            <?php } ?>
+            </ul>
+            <div class="pricing-footer">
+              <a class="btn btn-secondary" href="index.php/c_event" role="button">Lihat Event &raquo;</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div> <!-- /container -->

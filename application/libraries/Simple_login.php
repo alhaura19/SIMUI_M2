@@ -28,7 +28,7 @@ class Simple_login {
 				$this->CI->session->set_userdata('type', 'Humas');
 			}
 			$this->CI->session->set_flashdata('success','Selamat Datang '.$username);
-			redirect(base_url('dashboard'));
+			redirect(base_url('home'));
 		}else{
 			$this->CI->session->set_flashdata('error','Oops... Username/password salah');
 			redirect(base_url('home'));
