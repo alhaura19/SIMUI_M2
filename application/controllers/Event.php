@@ -40,15 +40,16 @@ class Event extends CI_Controller {
 		// upload file poster dulu
 		// setting konfigurasi upload
 		$config['upload_path'] = './uploads/poster/';
-		$config['allowed_type'] = 'gif|pdf|jpg|png';
+		$config['allowed_types'] = 'gif|pdf|jpg|png';
 		$config['remove_spaces'] = TRUE;
 		$config['overwrite'] = FALSE;
 		// load library upload
 		$this->load->library('upload',$config);
 		// lakukan upload file
 
-		if (!$this->upload->do_upload('poster')) {
-			$this->session->set_flashdata('danger','Event gagal di tambahkan');
+		if ( ! $this->upload->do_upload('poster'))
+		{
+			$this->session->set_flashdata('info',$this->upload->display_errors('<p>', '</p>'));
 			redirect(base_url('event'));
 		}else {
 			// inisialisasi data untuk insert database
