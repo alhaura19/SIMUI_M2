@@ -20,7 +20,7 @@
             <a class="nav-link" href="<?php echo base_url('c_kepanitiaan'); ?>"> Kepanitiaan</a>
           </li>
           <li class="nav-item align-right">
-            <a class="nav-link" href="<?php echo base_url('c_event'); ?>"> Event</a>
+            <a class="nav-link" href="<?php echo base_url('event'); ?>"> Event</a>
           </li>
           <li class="nav-item align-right">
           </li>
