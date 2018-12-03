@@ -49,8 +49,8 @@ require_once ('layout/navbar.php');
                   <td><?php echo $hasil_event->jumlah_pendaftar; ?></td>
                   <?php if (isset($_SESSION['type'])) { ?>
                     <td>
-                      <button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#edit_event<?=$hasil_event->id_event?>">Edit</button>
-                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalsDelete<?=$hasil_event->id_event?>">Hapus</button>
+                      <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#edit_event<?=$hasil_event->id_event?>">Edit</button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalsDelete<?=$hasil_event->id_event?>">Hapus</button>
                     </td>
                   <?php  }?>
                 </tr>
@@ -94,7 +94,7 @@ require_once ('layout/navbar.php');
           </div>
           <div class="form-group">
             <label for="tanggal">Tanggal :</label>
-            <input data-date-format="dd/mm/yyyy" class="form-control" name="tanggal" id='tanggal'/>
+            <input  class="form-control" name="tanggal" id='tanggal'/>
           </div>
           <div class="form-group">
             <label for="waktu">Waktu :</label>
@@ -186,12 +186,12 @@ require_once ('layout/navbar.php');
             </div>
             <div class="form-group">
               <label for="tanggal">Tanggal :</label>
-              <input class="form-control" id='tanggal' name="tanggal" value="<?=$hasil_event->tanggal;?>">
+              <input class="form-control" type="text" id='tanggal' name="tanggal" value="<?=$hasil_event->tanggal;?>">
             </div>
             <div class="form-group">
               <label for="waktu">Waktu :</label>
-              <div class='input-group date' id='waktu'>
-                <input type='text' class="form-control" name="waktu" value="<?=$hasil_event->waktu;?>">
+              <div class='input-group date' >
+                <input type='text' class="form-control" id='waktu' name="waktu" value="<?=$hasil_event->waktu;?>">
               </div>
             </div>
             <div class="form-group">

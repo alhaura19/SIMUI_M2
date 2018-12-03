@@ -57,6 +57,7 @@ class M_event extends CI_model{
 
   }
 
+  //fungsi ini untuk mengambil data form dropdown organisasi
   public function dd_organisasi()
   {
     $this->db->order_by('nama','asc');
@@ -71,7 +72,9 @@ class M_event extends CI_model{
     }
     return $dd;
   }
+
   public function dd_kepanitiaan()
+  //fungsi ini untuk mengambil data form dropdown kepanitiaan
   {
     $this->db->order_by('tanggal_dibuka','asc');
     $result = $this->db->get('open_recruitment');
@@ -86,6 +89,7 @@ class M_event extends CI_model{
     return $dd;
   }
   public function dd_kategori()
+  //fungsi ini untuk mengambil data form dropdown kategori
   {
     $this->db->order_by('nomor','asc');
     $result = $this->db->get('kategori_event');

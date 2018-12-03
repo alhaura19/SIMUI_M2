@@ -78,6 +78,43 @@ class Event extends CI_Controller {
 	public function edit_event()
 	{
 
+		if (NULL == $this->input->post('poster')||trim($this->input->post('poster')) == '') {
+// jika field file upload tidak berubah / tidak ada isinya
+			$id_event['id_event'] = $this->input->post("id_event");
+			$data = array(
+				'nama'       				=> $this->input->post("nama_event"),
+				'id_pembuat_event'  => $this->input->post("organisasi"),
+				'tanggal'    				=> $this->input->post("tanggal"),
+				'waktu'         		=> $this->input->post("waktu"),
+				'kapasitas'         => $this->input->post("kapasitas"),
+				'harga_tiket'       => $this->input->post("harga_tiket"),
+				'lokasi'       			=> $this->input->post("lokasi"),
+				'sifat_event'       => $this->input->post("sifat_event"),
+				'deskripsi_singkat' => $this->input->post("deskripsi_singkat"),
+				'nomor_kategori' => $this->input->post("kategori"),
+			);
+
+			$this->m_event->update($data, $id_event);
+			redirect('event');
+			$this->session->set_flashdata('info', 'Success! data berhasil diupdate didatabase.');
+
+		}//jika field poster ada isinya, upload poster baru
+		// upload file poster dulu
+		// setting konfigurasi upload
+		$config['upload_path'] = './uploads/poster/';
+		$config['allowed_types'] = 'gif|pdf|jpg|png';
+		$config['remove_spaces'] = TRUE;
+		$config['overwrite'] = FALSE;
+		// load library upload
+		$this->load->library('upload',$config);
+		// lakukan upload file
+
+		if ( ! $this->upload->do_upload('poster'))
+		{
+			$this->session->set_flashdata('info',$this->upload->display_errors('<p>', '</p>'));
+			redirect(base_url('event'));
+		}
+
 		$id_event['id_event'] = $this->input->post("id_event");
 		$data = array(
 			'nama'       				=> $this->input->post("nama_event"),
@@ -90,7 +127,7 @@ class Event extends CI_Controller {
 			'sifat_event'       => $this->input->post("sifat_event"),
 			'deskripsi_singkat' => $this->input->post("deskripsi_singkat"),
 			'nomor_kategori' => $this->input->post("kategori"),
-			'poster'						=>$this->input->post("poster")
+			'poster'						=>$this->upload->data("file_name")
 
 		);
 
@@ -107,11 +144,11 @@ class Event extends CI_Controller {
 	{
 		$id_event = $this->input->post('id_event');
 		if($id_event==""){
-			$this->session->set_flashdata('error',"Data Anda Gagal Di Hapus");
+			$this->session->set_flashdata('danger',"Data Anda Gagal Di Hapus");
 			redirect('event');
 		}else{
 			if ($this->m_event->hapus($id_event)) {
-				$this->session->set_flashdata('success',"Data Berhasil Dihapus");
+						$this->session->set_flashdata('success',"Data Berhasil Dihapus");
 				redirect('event');
 			}else {
 				$this->session->set_flashdata('danger',"Data Gagal Dihapus");

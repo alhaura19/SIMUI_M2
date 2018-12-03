@@ -14,10 +14,10 @@
             <a class="nav-link" href="<?php echo base_url('home'); ?>">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item align-right">
-            <a class="nav-link" href="<?php echo base_url('c_organisasi'); ?>"> Organisasi</a>
+            <a class="nav-link" href="<?php echo base_url('organisasi'); ?>"> Organisasi</a>
           </li>
           <li class="nav-item align-right">
-            <a class="nav-link" href="<?php echo base_url('c_kepanitiaan'); ?>"> Kepanitiaan</a>
+            <a class="nav-link" href="<?php echo base_url('kepanitiaan'); ?>"> Kepanitiaan</a>
           </li>
           <li class="nav-item align-right">
             <a class="nav-link" href="<?php echo base_url('event'); ?>"> Event</a>
@@ -43,6 +43,11 @@
      <div class="alert alert-danger">
        <a href="#" class="close" data-dismiss="alert">&times;</a>
        <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
+     </div>
+   <?php } else if($this->session->flashdata('danger')){ ?>
+     <div class="alert alert-danger">
+       <a href="#" class="close" data-dismiss="alert">&times;</a>
+       <strong>Error!</strong> <?php echo $this->session->flashdata('danger'); ?>
      </div>
    <?php } else if($this->session->flashdata('warning')){ ?>
      <div class="alert alert-warning">
