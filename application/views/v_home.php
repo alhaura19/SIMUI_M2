@@ -23,7 +23,7 @@ require_once ('layout/navbar.php');
             <?php } ?>
             </ul>
             <div class="pricing-footer">
-              <a class="btn btn-secondary" href="<?php echo base_url('c_organisasi'); ?>" role="button">Lihat Organisasi &raquo;</a>
+              <a class="btn btn-secondary" href="<?php echo base_url('organisasi'); ?>" role="button">Lihat Organisasi &raquo;</a>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@ require_once ('layout/navbar.php');
             <?php } ?>
             </ul>
             <div class="pricing-footer">
-              <a class="btn btn-secondary" href="index.php/c_kepanitiaan" role="button">Lihat Kepanitiaan &raquo;</a>
+              <a class="btn btn-secondary" href="index.php/kepanitiaan" role="button">Lihat Kepanitiaan &raquo;</a>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ require_once ('layout/navbar.php');
             <?php } ?>
             </ul>
             <div class="pricing-footer">
-              <a class="btn btn-secondary" href="index.php/c_event" role="button">Lihat Event &raquo;</a>
+              <a class="btn btn-secondary" href="index.php/event" role="button">Lihat Event &raquo;</a>
             </div>
           </div>
         </div>
