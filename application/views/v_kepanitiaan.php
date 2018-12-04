@@ -9,141 +9,141 @@ require_once ('layout/navbar.php');
   <div class="container">
     <div class="row">
       <div class="col-md-12 pt-4">
-        <h4>Bootstrap Snipp for Datatable</h4>
+        <h4>Daftar Kepanitiaan</h4>
+        <?php if (isset($_SESSION['type'])) { ?>
+          <button class="btn btn-md btn-success" type="button" name="tambah_kepanitiaan" data-toggle="modal" data-target="#tambah_kepanitiaan">Tambah Kepanitiaan</button>
+        <?php } ?>
+        <hr>
         <div class="table-responsive">
-
-
-          <table id="mytable" class="table table-bordred table-striped">
-
-            <thead>
-
-              <th><input type="checkbox" id="checkall" /></th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Address</th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Edit</th>
-
-              <th>Delete</th>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-
-              <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-
-
-              <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-
-
-
-              <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-
-
-              <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
-                <td>Mohsin</td>
-                <td>Irshad</td>
-                <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                <td>isometric.mohsin@gmail.com</td>
-                <td>+923335586757</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-              </tr>
-
-
-
-
-
-            </tbody>
-
-          </table>
-
-          <div class="clearfix"></div>
-          <ul class="pagination pull-right">
-            <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-          </ul>
-
-        </div>
-
+					<table id="table" class="table table-sm table-condensed table-bordred table-striped table-hover">
+						<thead class="thead-dark">
+							<th>Nama Kepanitiaan</th>
+							<th>Email</th>
+							<th>Alamat Website</th>
+							<th>Organisasi</th>
+							<th>Kategori</th>
+							<th>Logo</th>
+							<th>Deskripsi</th>
+							<th>Contact Person</th>
+							<?php if (isset($_SESSION['type'])) { ?>
+								<th>Options</th>
+							<?php } ?>
+						</thead>
+						<tbody>
+							<?php
+							foreach ($data_kepanitiaan as $hasil_kepanitiaan) {?>
+								<tr>
+									<td><?php echo $hasil_kepanitiaan->nama; ?></td>
+									<td><?php echo $hasil_kepanitiaan->email; ?></td>
+									<td><?php echo $hasil_kepanitiaan->alamat_website; ?></td>
+									<td><?php echo $hasil_kepanitiaan->organisasi; ?></td>
+									<td><?php echo $hasil_kepanitiaan->kategori; ?></td>
+									<td> <img class="img-thumbnail" src="<?php echo base_url('uploads/logo/'.$hasil_kepanitiaan->logo); ?>" alt=""></td>
+									<td><?php echo $hasil_kepanitiaan->deskripsi; ?></td>
+									<td><?php echo $hasil_kepanitiaan->contact_person; ?></td>
+									<?php if (isset($_SESSION['type'])) { ?>
+										<td>
+											<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#edit_organisasi<?=$hasil_kepanitiaan->id?>">Edit</button>
+											<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#organisasiDelete<?=$hasil_kepanitiaan->id?>">Hapus</button>
+										</td>
+									<?php  }?>
+								</tr>
+							<?php } ?>
+						</tbody>
+					</table>
+				</div>
       </div>
     </div>
   </div>
 
-
-  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
+  <!-- awal modals tambah kepanitiaan -->
+  <div class="modal fade" id="tambah_kepanitiaan" tabindex="-1" role="dialog" aria-labelledby="tambah_kepanitiaan" aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-          <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+          <h5 class="modal-title" id="Label_tambah_kepanitiaan">Tambah Data Kepanitiaan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
-          <div class="form-group">
-            <input class="form-control " type="text" placeholder="Mohsin">
+          <form enctype="multipart/form-data" action="<?php echo base_url('kepanitiaan/tambah_kepanitiaan') ?>" method="post">
+            <div class="form-group">
+              <label for="nama_organisasi" class="col-form-label">Nama Kepanitiaan:</label>
+              <input type="text" class="form-control" name="nama_kepanitiaan">
+            </div>
+            <div class="form-group">
+              <label for="organisasi">Organisasi Pengawas :</label>
+              <select class="form-control" id="tingkatan" name="tingkatan">
+								<option>Universitas</option>
+								<optgroup label="Fakultas">
+									<option>Fakultas Ilmu Komputer</option>
+									<option>Fakultas Hukum</option>
+									<option>Fakultas Ilmu Budaya</option>
+									<option>Fakultas Kedokteran</option>
+									<option>Fakultas Ekonomi dan Bisnis</option>
+									<option>Fakultas Psikologi</option>
+									<option>Fakultas Kedokteran Gigi</option>
+									<option>Fakultas Matematika dan Ilmu Pengetahuan Alam</option>
+									<option>Fakultas Teknik</option>
+									<option>Fakultas Kesehatan Masyarakat</option>
+									<option>Fakultas Ilmu Sosial dan Ilmu Politik</option>
+									<option>Fakultas Ilmu Keperawatan</option>
+									<option>Program Vokasi</option>
+									<option>Fakultas Farmasi</option>
+									<option>Fakultas Ilmu Administrasi</option>
+									<option>Sekolah Ilmu Lingkungan</option>
+									<option>Sekolah Kajian Stratejik dan Global</option>
+								</optgroup>
+							</select>
+              <?php
+              $dd_organisasi_attribute = 'class="form-control select2"';
+              echo form_dropdown('organisasi', $dd_organisasi, $organisasi_selected, $dd_organisasi_attribute);
+              ?>
+            </div>
+            <div class="form-group">
+              <label for="email">Alamat Email :</label>
+              <input type="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+              <label for="alamat_website">Alamat Website :</label>
+              <input type="url"  class="form-control" name="alamat_website">
+            </div>
+            <div class="form-group">
+              <label for="contact_person">Contact Person :</label>
+              <input type="tel" class="form-control" name="contact_person">
+            </div>
+            <div class="form-group">
+              <label for="kategori">Kategori Kepanitiaan :</label>
+              <select class="form-control" id="kategori" name="kategori">
+                <option>Unit Kegiatan Mahasiswa</option>
+                <option>Dewan Perwakilan Mahasiswa Universitas</option>
+                <option>Badan Eksekutif Mahasiswa Universitas</option>
+                <option>Dewan Perwakilan Mahasiswa Fakultas</option>
+                <option>Badan Eksekutif Mahasiswa Fakultas</option>
+                <option>Himpunan Mahasiswa Jurusan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="logo">Logo :</label>
+              <input type="file" class="form-control-file" name="logo"></input>
+            </div>
+            <div class="form-group">
+              <label for="deskripsi">Deskripsi Kepanitiaan :</label>
+              <textarea name="deskripsi" rows="4" cols="45"></textarea>
+            </div>
           </div>
-          <div class="form-group">
-
-            <input class="form-control " type="text" placeholder="Irshad">
-          </div>
-          <div class="form-group">
-            <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
-
-
-          </div>
-        </div>
-        <div class="modal-footer ">
-          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+          <div class="modal-footer">
+            <div class="form-group">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Tambah Kepanitiaan</button>
+            </div>
+          </form>
         </div>
       </div>
-      <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
   </div>
-
+  <!-- akhir modals tambah organisasi -->
 
 
   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
