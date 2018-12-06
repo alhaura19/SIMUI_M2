@@ -94,12 +94,12 @@ require_once ('layout/navbar.php');
           </div>
           <div class="form-group">
             <label for="tanggal">Tanggal :</label>
-            <input  class="form-control" name="tanggal" id='tanggal'/>
+            <input type="date" data-date-format="YYYY/MM/DD" class="form-control" name="tanggal" id='tanggal1'/>
           </div>
           <div class="form-group">
             <label for="waktu">Waktu :</label>
             <div class='input-group date' >
-              <input type='text' class="form-control" name="waktu" id='waktu'/>
+              <input type='time' class="form-control" name="waktu" id='waktu'/>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
               </span>
@@ -107,15 +107,15 @@ require_once ('layout/navbar.php');
           </div>
           <div class="form-group">
             <label for="kapasitas">Kapasitas :</label>
-            <input class="form-control" name="kapasitas"></input>
+            <input type="number" class="form-control" name="kapasitas"></input>
           </div>
           <div class="form-group">
             <label for="harga_tiket">Harga Tiket :</label>
-            <input class="form-control" name="harga_tiket"></input>
+            <input type="number" class="form-control" name="harga_tiket"></input>
           </div>
           <div class="form-group">
             <label for="lokasi">Lokasi :</label>
-            <input class="form-control" name="lokasi"></input>
+            <input type="text" class="form-control" name="lokasi"></input>
           </div>
           <div class="form-group">
             <label for="sifat_event">Sifat Event : </label>
@@ -186,25 +186,25 @@ require_once ('layout/navbar.php');
             </div>
             <div class="form-group">
               <label for="tanggal">Tanggal :</label>
-              <input class="form-control" type="text" id='tanggal' name="tanggal" value="<?=$hasil_event->tanggal;?>">
+              <input class="form-control" type="date" data-date-format="YYYY/MM/DD" id='tanggal1' name="tanggal" value="<?=$hasil_event->tanggal;?>">
             </div>
             <div class="form-group">
               <label for="waktu">Waktu :</label>
               <div class='input-group date' >
-                <input type='text' class="form-control" id='waktu' name="waktu" value="<?=$hasil_event->waktu;?>">
+                <input type='time' class="form-control" id='waktu' name="waktu" value="<?=$hasil_event->waktu;?>">
               </div>
             </div>
             <div class="form-group">
               <label for="kapasitas">Kapasitas :</label>
-              <input class="form-control" name="kapasitas" value="<?=$hasil_event->kapasitas;?>"></input>
+              <input type="number" class="form-control" name="kapasitas" value="<?=$hasil_event->kapasitas;?>"></input>
             </div>
             <div class="form-group">
               <label for="harga_tiket">Harga Tiket :</label>
-              <input class="form-control" name="harga_tiket" value="<?=$hasil_event->harga_tiket;?>"></input>
+              <input type="number" class="form-control" name="harga_tiket" value="<?=$hasil_event->harga_tiket;?>"></input>
             </div>
             <div class="form-group">
               <label for="lokasi">Lokasi :</label>
-              <input class="form-control" name="lokasi" value="<?=$hasil_event->lokasi;?>"></input>
+              <input type="text" class="form-control" name="lokasi" value="<?=$hasil_event->lokasi;?>"></input>
             </div>
             <div class="form-group">
               <label for="sifat_event">Sifat Event : </label>

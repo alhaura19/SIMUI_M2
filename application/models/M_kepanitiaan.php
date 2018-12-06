@@ -52,4 +52,19 @@ class M_kepanitiaan extends CI_model{
 			return false;
 		}
 	}
+
+	public function hapus($id)
+  //untuk hapus data kepanitiaan dilakukan di dua tabel, tabel kepanitiaan
+  // dan tabel pembuat_event
+  {
+    $query = $this->db->delete('kepanitiaan',array('id_organisasi' => $id));
+    if($query){
+      //jika berhasil baru delete data kepanitiaan pada tabel pembuat_event
+      $this->db->delete('pembuat_event',array('id' => $id ));
+      return true;
+    }else{
+      return false;
+    }
+
+  }
 }
