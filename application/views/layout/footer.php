@@ -90,4 +90,9 @@ jQuery('#waktu').datetimepicker({
   format:'H:i'
 });
 </script>
+<script>
+$(function() {
+  $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+});
+</script>
 </html>

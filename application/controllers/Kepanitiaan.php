@@ -16,9 +16,10 @@ class Kepanitiaan extends CI_Controller {
 	{
 		$data = array(
 			'title'	=> 'Kepanitiaan',
-			'dd_organisasi' => $this->m_kepanitiaan->dd_organisasi(),
-			'organisasi_selected' => $this->input->post('organisasi')?$this->input->post('organisasi'):'',
 			'data_kepanitiaan' => $this->m_kepanitiaan->get_kepanitiaan_all(),
+			'dd_organisasi' => $this->m_kepanitiaan->dd_organisasi(),
+			// 'organisasi_selected' => $this->input->post('organisasi')?$this->input->post('organisasi'):$row->organisasi,
+
 
 		);
 		$this->load->helper('form_helper','form','url','date');
@@ -73,7 +74,7 @@ class Kepanitiaan extends CI_Controller {
 			$this->session->set_flashdata('danger',"Data Anda Gagal Di Hapus, ID Kepanitiaan kosong");
 			redirect('kepanitiaan');
 		}else{
-			if ($this->M_kepanitiaan->hapus($id)) {
+			if ($this->m_kepanitiaan->hapus($id)) {
 				$this->session->set_flashdata('success',"Data Kepanitiaan Berhasil Dihapus");
 				redirect('kepanitiaan');
 			}else {
@@ -84,15 +85,16 @@ class Kepanitiaan extends CI_Controller {
 	}
 
 	//fungsi edit data kepanitiaan
-	public function edit_organisasi()
+	public function edit_kepanitiaan()
 	{
 
 		if (NULL == $this->input->post('logo')||trim($this->input->post('logo')) == '') {
 // jika field file upload tidak berubah / tidak ada isinya
 //update data tanpa mengubah isi tabel logo
 			$id['id'] = $this->input->post("id");
+			$id_organisasi_pengawas = $this->input->post("organisasi");
 			$data = array(
-				'nama'       				=> $this->input->post("nama_organisasi"),
+				'nama'       				=> $this->input->post("nama_kepanitiaan"),
 				'tingkatan'  				=> $this->input->post("tingkatan"),
 				'email'    					=> $this->input->post("email"),
 				'alamat_website'    => $this->input->post("alamat_website"),
@@ -100,7 +102,7 @@ class Kepanitiaan extends CI_Controller {
 				'kategori'       		=> $this->input->post("kategori"),
 				'deskripsi'       	=> $this->input->post("deskripsi"),
 			);
-			$this->m_organisasi->update($data, $id);
+			$this->m_kepanitiaan->update($data, $id,$id_organisasi_pengawas);
 			$this->session->set_flashdata('info', 'Success! data berhasil diupdate didatabase.');
 			redirect('organisasi');
 		}//jika field poster ada isinya, upload poster baru
@@ -121,6 +123,7 @@ class Kepanitiaan extends CI_Controller {
 		}
 
 		$id['id'] = $this->input->post("id");
+		$id_organisasi_pengawas = $this->input->post("organisasi");
 		$data = array(
 			'nama'       				=> $this->input->post("nama_organisasi"),
 			'tingkatan'  				=> $this->input->post("tingkatan"),
@@ -132,7 +135,7 @@ class Kepanitiaan extends CI_Controller {
 			'poster'						=>$this->upload->data("file_name"),
 		);
 
-		$this->m_organisasi->update($data, $id);
+		$this->m_kepanitiaan->update($data, $id, $id_organisasi_pengawas);
 		redirect('organisasi');
 		$this->session->set_flashdata('info', 'Success! data berhasil diupdate didatabase.');
 

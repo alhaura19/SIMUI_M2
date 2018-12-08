@@ -21,20 +21,13 @@ class M_kepanitiaan extends CI_model{
   { //ini adalah fungsi untuk mengambil data organisasi dalam tabel pembuat_event join dengan organisasi
     // $this->db->order_by('nama','asc');
     // $result = $this->db->get('pembuat_event');
-    $result = $this->db->select('*')
+    $query = $this->db->select('*')
 							->from('pembuat_event as p')
-							->order_by('p.nama','ASC')
 							->join('organisasi as o','p.id=o.id_organisasi')
+							->order_by('p.nama','ASC')
 							->get();
 
-    $dd[''] = 'Pilih Organisasi';
-    if ($result->num_rows()>0) {
-      foreach ($result->result() as $row) {
-        // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
-        $dd[$row->id] = $row->nama;
-      }
-    }
-    return $dd;
+    return $query->result();
   }
 
 	// fungsi insert data
@@ -52,6 +45,26 @@ class M_kepanitiaan extends CI_model{
 			return false;
 		}
 	}
+
+	//fungsi update data, pastikan data di table kepanitiaan
+  //on update cascade
+  public function update($data, $id, $id_organisasi_pengawas)
+  {
+    $query = $this->db->update("pembuat_event", $data, $id);
+
+    if($query){
+			$data_kepanitiaan = array(
+				'id_organisasi' 	=> $id_organisasi_pengawas,
+			);
+      // update organisasi pengawas kepanitiaan di tabel kepanitiaan
+			$this->db->where('id_kepanitiaan',$id['id']);
+			$this->db->update("kepanitiaan",$data_kepanitiaan);
+      return true;
+    }else{
+      return false;
+    }
+
+  }
 
 	public function hapus($id)
   //untuk hapus data kepanitiaan dilakukan di dua tabel, tabel kepanitiaan

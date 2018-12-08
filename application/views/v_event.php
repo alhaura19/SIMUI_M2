@@ -76,30 +76,34 @@ require_once ('layout/navbar.php');
         <form enctype="multipart/form-data" action="<?php echo base_url('event/tambah_event') ?>" method="post">
           <div class="form-group">
             <label for="nama_event" class="col-form-label">Nama Event:</label>
-            <input type="text" class="form-control" name="nama_event">
+            <input type="text" class="form-control" name="nama_event" required>
           </div>
           <div class="form-group">
             <label for="organisasi">Organisasi :</label>
-            <?php
-            $dd_organisasi_attribute = 'class="form-control select2"';
-            echo form_dropdown('organisasi', $dd_organisasi, $organisasi_selected, $dd_organisasi_attribute);
-            ?>
+            <select class="form-control select2" name="organisasi" id="organisasi" required>
+              <option selected value="kosong">Pilih Organisasi Penyelenggara Event</option>
+              <?php foreach ($dd_organisasi as $opsi_organisasi):?>
+                <option value="<?=$opsi_organisasi->id?>"><?=$opsi_organisasi->nama?></option>
+              <?php endforeach;?>
+            </select>
           </div>
           <div class="form-group">
             <label for="kepanitiaan">Kepanitiaan :</label>
-            <?php
-            $dd_kepanitiaan_attribute = 'class="form-control select2"';
-            echo form_dropdown('kepanitiaan', $dd_kepanitiaan, $kepanitiaan_selected, $dd_kepanitiaan_attribute);
-            ?>
+            <select class="form-control select2" name="organisasi" id="organisasi" required>
+              <option selected value="kosong">Pilih Kepanitiaan Event</option>
+              <?php foreach ($dd_kepanitiaan as $opsi_kepanitiaan):?>
+                <option value="<?=$opsi_kepanitiaan->id?>"><?=$opsi_kepanitiaan->nama?></option>
+              <?php endforeach;?>
+            </select>
           </div>
           <div class="form-group">
             <label for="tanggal">Tanggal :</label>
-            <input type="date" data-date-format="YYYY/MM/DD" class="form-control" name="tanggal" id='tanggal1'/>
+            <input type="date" data-date-format="YYYY/MM/DD" class="form-control" name="tanggal" id='tanggal1' required/>
           </div>
           <div class="form-group">
             <label for="waktu">Waktu :</label>
             <div class='input-group date' >
-              <input type='time' class="form-control" name="waktu" id='waktu'/>
+              <input type='time' class="form-control" name="waktu" id='waktu' required/>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
               </span>
@@ -107,15 +111,15 @@ require_once ('layout/navbar.php');
           </div>
           <div class="form-group">
             <label for="kapasitas">Kapasitas :</label>
-            <input type="number" class="form-control" name="kapasitas"></input>
+            <input type="number" class="form-control" name="kapasitas" required></input>
           </div>
           <div class="form-group">
             <label for="harga_tiket">Harga Tiket :</label>
-            <input type="number" class="form-control" name="harga_tiket"></input>
+            <input type="number" class="form-control" name="harga_tiket" value="0"></input>
           </div>
           <div class="form-group">
             <label for="lokasi">Lokasi :</label>
-            <input type="text" class="form-control" name="lokasi"></input>
+            <input type="text" class="form-control" name="lokasi" required></input>
           </div>
           <div class="form-group">
             <label for="sifat_event">Sifat Event : </label>
@@ -137,11 +141,11 @@ require_once ('layout/navbar.php');
           </div>
           <div class="form-group">
             <label for="deskripsi_singkat">Deskripsi :</label>
-            <textarea name="deskripsi_singkat"  rows="4" cols="45"></textarea>
+            <textarea name="deskripsi_singkat"  rows="4" cols="45" required></textarea>
           </div>
           <div class="form-group">
             <label for="poster">Poster :</label>
-            <input type="file" class="form-control-file" name="poster">
+            <input type="file" class="form-control-file" name="poster" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -175,10 +179,12 @@ require_once ('layout/navbar.php');
             </div>
             <div class="form-group">
               <label for="organisasi">Organisasi :</label>
-              <?php
-              $dd_organisasi_attribute = 'class="form-control select2"';
-              echo form_dropdown('organisasi', $dd_organisasi, $organisasi_selected = $hasil_event->id_pembuat_event, $dd_organisasi_attribute);
-              ?>
+              <select class="form-control select2" name="organisasi" id="organisasi">
+                <option selected value="<?=$hasil_event->id_pembuat_event?>"><?=$hasil_event->nama_or?></option>
+                <?php foreach ($dd_organisasi as $opsi_organisasi):?>
+                  <option value="<?=$opsi_organisasi->id?>"><?=$opsi_organisasi->nama?></option>
+                <?php endforeach;?>
+              </select>
             </div>
             <div class="form-group">
               <label for="kepanitiaan">Kepanitiaan :</label>
@@ -259,8 +265,8 @@ require_once ('layout/navbar.php');
           </div>
           <div class="modal-footer">
             <div class="form-group">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-danger">Hapus</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-danger">Hapus</button>
             </div>
           </form>
         </div>

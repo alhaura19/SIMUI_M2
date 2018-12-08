@@ -28,7 +28,7 @@ th {
   font-size: 16px;
 }
 td{
-  font-family:Roboto;
+  font-family:sans-serif;
   font-size: 14px;
 }
 
@@ -39,7 +39,7 @@ body > .container {
 
 body > .table {
   font-size: 10px;
-  font-family: Roboto;
+  font-family: sans-serif;
 }
 
 .footer > .container {

@@ -60,33 +60,23 @@ class M_event extends CI_model{
   //fungsi ini untuk mengambil data form dropdown organisasi
   public function dd_organisasi()
   {
-    $this->db->order_by('nama','asc');
-    $result = $this->db->get('pembuat_event');
-
-    $dd[''] = 'Pilih Organisasi';
-    if ($result->num_rows()>0) {
-      foreach ($result->result() as $row) {
-        // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
-        $dd[$row->id] = $row->nama;
-      }
-    }
-    return $dd;
+    $query = $this->db->select('*')
+            ->from('pembuat_event as p')
+            ->join('organisasi as o','p.id=o.id_organisasi')
+						->order_by('p.nama','ASC')
+						->get();
+    return $query->result();
   }
 
   public function dd_kepanitiaan()
   //fungsi ini untuk mengambil data form dropdown kepanitiaan
   {
-    $this->db->order_by('tanggal_dibuka','asc');
-    $result = $this->db->get('open_recruitment');
-
-    $dd[''] = 'Pilih Kepanitiaan';
-    if ($result->num_rows()>0) {
-      foreach ($result->result() as $row) {
-        // tentukan valuenya(selelah kiri) dan lahelnya (sebelah kanan)
-        $dd[$row->id_oprec] = $row->nama;
-      }
-    }
-    return $dd;
+    $query = $this->db->select('*')
+            ->from('pembuat_event as p')
+            ->join('kepanitiaan as k','p.id=k.id_kepanitiaan')
+						->order_by('p.nama','ASC')
+						->get();
+    return $query->result();
   }
   public function dd_kategori()
   //fungsi ini untuk mengambil data form dropdown kategori

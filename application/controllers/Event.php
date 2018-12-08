@@ -95,8 +95,9 @@ class Event extends CI_Controller {
 			);
 
 			$this->m_event->update($data, $id_event);
-			redirect('event');
 			$this->session->set_flashdata('info', 'Success! data berhasil diupdate didatabase.');
+			redirect('event');
+
 
 		}//jika field poster ada isinya, upload poster baru
 		// upload file poster dulu
@@ -132,8 +133,9 @@ class Event extends CI_Controller {
 		);
 
 		$this->m_event->update($data, $id_event);
-		redirect('event');
 		$this->session->set_flashdata('info', 'Success! data berhasil diupdate didatabase.');
+		redirect('event');
+
 
 		//redirect
 

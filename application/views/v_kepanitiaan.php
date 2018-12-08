@@ -70,11 +70,11 @@ require_once ('layout/navbar.php');
           <form enctype="multipart/form-data" action="<?php echo base_url('kepanitiaan/tambah_kepanitiaan') ?>" method="post">
             <div class="form-group">
               <label for="nama_organisasi" class="col-form-label">Nama Kepanitiaan:</label>
-              <input type="text" class="form-control" name="nama_kepanitiaan">
+              <input type="text" class="form-control" name="nama_kepanitiaan" required>
             </div>
             <div class="form-group">
               <label for="organisasi">Organisasi Pengawas :</label>
-              <select class="form-control" id="tingkatan" name="tingkatan">
+              <select class="form-control" id="tingkatan" name="tingkatan" required>
                 <option>Universitas</option>
                 <optgroup label="Fakultas">
                   <option>Fakultas Ilmu Komputer</option>
@@ -96,14 +96,15 @@ require_once ('layout/navbar.php');
                   <option>Sekolah Kajian Stratejik dan Global</option>
                 </optgroup>
               </select>
-              <?php
-              $dd_organisasi_attribute = 'class="form-control select2"';
-              echo form_dropdown('organisasi', $dd_organisasi, $organisasi_selected, $dd_organisasi_attribute);
-              ?>
+              <select class="form-control select2" name="organisasi" id="organisasi" required>
+                <?php foreach ($dd_organisasi as $opsi_organisasi):?>
+                <option value="<?=$opsi_organisasi->id?>"><?=$opsi_organisasi->nama?></option>
+              <?php endforeach;?>
+              </select>
             </div>
             <div class="form-group">
               <label for="email">Alamat Email :</label>
-              <input type="email" class="form-control" name="email">
+              <input type="email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
               <label for="alamat_website">Alamat Website :</label>
@@ -111,11 +112,11 @@ require_once ('layout/navbar.php');
             </div>
             <div class="form-group">
               <label for="contact_person">Contact Person :</label>
-              <input type="tel" class="form-control" name="contact_person">
+              <input type="tel" class="form-control" name="contact_person" required>
             </div>
             <div class="form-group">
               <label for="kategori">Kategori Kepanitiaan :</label>
-              <select class="form-control" id="kategori" name="kategori">
+              <select class="form-control" id="kategori" name="kategori" required>
                 <option>Unit Kegiatan Mahasiswa</option>
                 <option>Dewan Perwakilan Mahasiswa Universitas</option>
                 <option>Badan Eksekutif Mahasiswa Universitas</option>
@@ -130,7 +131,7 @@ require_once ('layout/navbar.php');
             </div>
             <div class="form-group">
               <label for="deskripsi">Deskripsi Kepanitiaan :</label>
-              <textarea name="deskripsi" rows="4" cols="45"></textarea>
+              <textarea name="deskripsi" rows="4" cols="45" required></textarea>
             </div>
           </div>
           <div class="modal-footer">
@@ -150,7 +151,7 @@ require_once ('layout/navbar.php');
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="Label_edit_kepanitiaan">Tambah Data Kepanitiaan</h5>
+            <h5 class="modal-title" id="Label_edit_kepanitiaan">Edit Data Kepanitiaan</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -159,14 +160,40 @@ require_once ('layout/navbar.php');
             <form enctype="multipart/form-data" action="<?php echo base_url('kepanitiaan/edit_kepanitiaan') ?>" method="post">
               <div class="form-group">
                 <label for="nama_organisasi" class="col-form-label">Nama Kepanitiaan:</label>
-                <input type="text" class="form-control" name="nama_kepanitiaan" value="<?=$hasil_kepanitiaan->nama?>">
+                <input type="hidden" class="form-control" name="id" value="<?=$hasil_kepanitiaan->id?>" required>
+                <input type="text" class="form-control" name="nama_kepanitiaan" value="<?=$hasil_kepanitiaan->nama?>" required>
               </div>
               <div class="form-group">
                 <label for="organisasi">Organisasi Pengawas :</label>
-                <?php
-                $dd_organisasi_attribute = 'class="form-control select2"';
-                echo form_dropdown('organisasi', $dd_organisasi, $organisasi_selected =$hasil_kepanitiaan->organisasi, $dd_organisasi_attribute);
-                ?>
+                <select class="form-control" id="tingkatan" name="tingkatan">
+                  <option selected value="<?=$hasil_kepanitiaan->tingkatan?>"><?=$hasil_kepanitiaan->tingkatan?></option>
+                  <option>Universitas</option>
+                  <optgroup label="Fakultas">
+                    <option>Fakultas Ilmu Komputer</option>
+                    <option>Fakultas Hukum</option>
+                    <option>Fakultas Ilmu Budaya</option>
+                    <option>Fakultas Kedokteran</option>
+                    <option>Fakultas Ekonomi dan Bisnis</option>
+                    <option>Fakultas Psikologi</option>
+                    <option>Fakultas Kedokteran Gigi</option>
+                    <option>Fakultas Matematika dan Ilmu Pengetahuan Alam</option>
+                    <option>Fakultas Teknik</option>
+                    <option>Fakultas Kesehatan Masyarakat</option>
+                    <option>Fakultas Ilmu Sosial dan Ilmu Politik</option>
+                    <option>Fakultas Ilmu Keperawatan</option>
+                    <option>Program Vokasi</option>
+                    <option>Fakultas Farmasi</option>
+                    <option>Fakultas Ilmu Administrasi</option>
+                    <option>Sekolah Ilmu Lingkungan</option>
+                    <option>Sekolah Kajian Stratejik dan Global</option>
+                  </optgroup>
+                </select>
+                <select class="form-control select2" name="organisasi" id="organisasi">
+                  <option selected value="<?=$hasil_kepanitiaan->id_organisasi?>"><?=$hasil_kepanitiaan->organisasi?></option>
+                  <?php foreach ($dd_organisasi as $opsi_organisasi):?>
+                  <option value="<?=$opsi_organisasi->id?>"><?=$opsi_organisasi->nama?></option>
+                <?php endforeach;?>
+                </select>
               </div>
               <div class="form-group">
                 <label for="email">Alamat Email :</label>
@@ -219,8 +246,8 @@ require_once ('layout/navbar.php');
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
             <h4 class="modal-title custom_align" id="Label_delete_kepanitiaan">Hapus Data Kepanitiaan</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
             <p>Apakah anda yakin akan menghapus kepanitiaan <?=$hasil_kepanitiaan->nama;?></p>
