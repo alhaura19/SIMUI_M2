@@ -78,7 +78,7 @@ class Event extends CI_Controller {
 	public function edit_event()
 	{
 
-		if ($_FILES['poster']['size'] == 0 && $_FILES['poster']['error'] == 0) {
+		if (empty($_FILES['poster']['name'])) {
 // jika field file upload tidak berubah / tidak ada isinya
 			$id_event['id_event'] = $this->input->post("id_event");
 			$data = array(

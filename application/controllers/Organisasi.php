@@ -82,7 +82,7 @@ class Organisasi extends CI_Controller {
 	public function edit_organisasi()
 	{
 
-		if ($_FILES['logo']['size'] == 0 && $_FILES['logo']['error'] == 0) {
+		if (empty($_FILES['logo']['name'])) {
 // jika field file upload tidak berubah / tidak ada isinya
 //update data tanpa mengubah isi tabel logo
 			$id['id'] = $this->input->post("id");
