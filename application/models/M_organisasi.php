@@ -7,7 +7,8 @@ class M_organisasi extends CI_model{
   {
     $query = $this->db->select("*")
     ->from('pembuat_event as p')
-    ->join('organisasi as o','o.id_organisasi = p.id','natural')
+    ->join('organisasi as o','o.id_organisasi = p.id')
+    ->distinct()
     ->get();
     return $query->result();
   }
