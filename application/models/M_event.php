@@ -45,9 +45,9 @@ class M_event extends CI_model{
 
   }
 
-  public function hapus($id_event)
+  public function hapus($id_event,$id_pembuat_event)
   {
-    $query = $this->db->delete('event',array('id_event' => $id_event));
+    $query = $this->db->delete('event',array('id_event' => $id_event,'id_pembuat_event' => $id_pembuat_event));
 
     if($query){
       return true;

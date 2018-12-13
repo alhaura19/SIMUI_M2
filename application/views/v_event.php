@@ -51,8 +51,8 @@ require_once ('layout/navbar.php');
                   <td><img class="img-thumbnail" src="<?php echo base_url('uploads/poster/'.$hasil_event->poster); ?>" alt=""></td>
                   <?php if (isset($_SESSION['type'])) { ?>
                     <td>
-                      <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#edit_event<?=$hasil_event->id_event?>">Edit</button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalsDelete<?=$hasil_event->id_event?>">Hapus</button>
+                      <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="<?=trim('#edit_event'.$hasil_event->id_event.$hasil_event->id_pembuat_event)?>">Edit</button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="<?=trim('#modalsDelete'.$hasil_event->id_event.$hasil_event->id_pembuat_event)?>">Hapus</button>
                     </td>
                   <?php  }?>
                 </tr>
@@ -163,7 +163,7 @@ require_once ('layout/navbar.php');
 <!-- Akhir modals tambah_event -->
 <!-- awal modals edit_event -->
 <?php foreach ($data_event as $hasil_event):?>
-  <div class="modal fade" id="edit_event<?=$hasil_event->id_event?>" tabindex="-1" role="dialog" aria-labelledby="edit_event" aria-hidden="true">
+  <div class="modal fade" id="<?=trim('edit_event'.$hasil_event->id_event.$hasil_event->id_pembuat_event)?>" tabindex="-1" role="dialog" aria-labelledby="edit_event" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -256,7 +256,7 @@ require_once ('layout/navbar.php');
 <!-- akhir modals edit_event -->
 <!-- Modals delete data -->
 <?php foreach ($data_event as $hasil_event):?>
-  <div class="modal fade" id="modalsDelete<?=$hasil_event->id_event?>" tabindex="-1" role="dialog" aria-labelledby="modalsDelete" aria-hidden="true">
+  <div class="modal fade" id="<?=trim('modalsDelete'.$hasil_event->id_event.$hasil_event->id_pembuat_event)?>" tabindex="-1" role="dialog" aria-labelledby="modalsDelete" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -270,6 +270,7 @@ require_once ('layout/navbar.php');
           <form class="" action="<?php echo base_url('event/hapus/'); ?>" method="post">
             <div class="form-group">
               <input type="hidden" readonly value="<?=$hasil_event->id_event;?>" name="id_event" class="form-control">
+              <input type="hidden" readonly value="<?=$hasil_event->id_pembuat_event;?>" name="id_pembuat_event" class="form-control">
             </div>
           </div>
           <div class="modal-footer">

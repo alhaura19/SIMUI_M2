@@ -145,11 +145,12 @@ class Event extends CI_Controller {
 	public function hapus()
 	{
 		$id_event = $this->input->post('id_event');
+		$id_pembuat_event = $this->input->post('id_pembuat_event');
 		if($id_event==""){
 			$this->session->set_flashdata('danger',"Data Anda Gagal Di Hapus");
 			redirect('event');
 		}else{
-			if ($this->m_event->hapus($id_event)) {
+			if ($this->m_event->hapus($id_event,$id_pembuat_event)) {
 						$this->session->set_flashdata('success',"Data Berhasil Dihapus");
 				redirect('event');
 			}else {
