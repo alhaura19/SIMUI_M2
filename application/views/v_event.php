@@ -216,7 +216,14 @@ require_once ('layout/navbar.php');
             </div>
             <div class="form-group">
               <label for="sifat_event">Sifat Event : </label>
-              <input type="text" name="sifat_event" value="<?=$hasil_event->sifat_event;?>">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sifat_event" id="umum" value="Umum" <?php echo ($hasil_event->sifat_event=='Umum')?'checked':'' ?>>
+                <label class="form-check-label" for="umum">Umum</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sifat_event" id="private" value="Private" <?php echo ($hasil_event->sifat_event=='Private')?'checked':'' ?>>
+                <label class="form-check-label" for="private">Private</label>
+              </div>
             </div>
             <div class="form-group">
               <label for="kategori_event">Kategori Event :</label>
@@ -237,7 +244,7 @@ require_once ('layout/navbar.php');
           </div>
           <div class="modal-footer">
             <div class="form-group">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Edit Event</button>
             </div>
           </form>

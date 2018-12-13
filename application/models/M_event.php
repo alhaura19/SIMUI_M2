@@ -11,8 +11,8 @@ class M_event extends CI_model{
     e.nama,e.tanggal,e.waktu,e.kapasitas,e.harga_tiket,
     e.lokasi,e.sifat_event,e.deskripsi_singkat,k.nama as nama_kategori,e.jumlah_pendaftar,e.poster")
     ->from('event as e')
-    ->join('kategori_event as k','e.nomor_kategori = k.nomor')
-    ->join('pembuat_event as p','e.id_pembuat_event = p.id')
+    ->join('kategori_event as k','e.nomor_kategori = k.nomor','natural')
+    ->join('pembuat_event as p','e.id_pembuat_event = p.id','natural')
     ->order_by('tanggal', 'ASC')
     ->get();
     return $query->result();

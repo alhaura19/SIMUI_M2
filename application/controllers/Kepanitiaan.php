@@ -125,7 +125,7 @@ class Kepanitiaan extends CI_Controller {
 		$id['id'] = $this->input->post("id");
 		$id_organisasi_pengawas = $this->input->post("organisasi");
 		$data = array(
-			'nama'       				=> $this->input->post("nama_organisasi"),
+			'nama'       				=> $this->input->post("nama_kepanitiaan"),
 			'tingkatan'  				=> $this->input->post("tingkatan"),
 			'email'    					=> $this->input->post("email"),
 			'alamat_website'    => $this->input->post("alamat_website"),
