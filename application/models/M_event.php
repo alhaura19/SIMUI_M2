@@ -9,7 +9,7 @@ class M_event extends CI_model{
     // from simui.event e join simui.kategori_event k on e.nomor_kategori=k.nomor join simui.pembuat_event p on e.id_pembuat_event = p.id;
     $query = $this->db->select("e.nomor_kategori,e.id_pembuat_event,e.id_event,p.nama as nama_or,
     e.nama,e.tanggal,e.waktu,e.kapasitas,e.harga_tiket,
-    e.lokasi,e.sifat_event,e.deskripsi_singkat,k.nama as nama_kategori,e.jumlah_pendaftar")
+    e.lokasi,e.sifat_event,e.deskripsi_singkat,k.nama as nama_kategori,e.jumlah_pendaftar,e.poster")
     ->from('event as e')
     ->join('kategori_event as k','e.nomor_kategori = k.nomor')
     ->join('pembuat_event as p','e.id_pembuat_event = p.id')

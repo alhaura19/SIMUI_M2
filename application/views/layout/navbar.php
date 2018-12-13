@@ -12,16 +12,16 @@
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item align-right">
-                <a class="nav-link" href="<?php echo base_url('home'); ?>">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item align-right">
-                <a class="nav-link" href="<?php echo base_url('organisasi'); ?>"> Organisasi</a>
+                <a class="nav-link" href="/organisasi"> Organisasi</a>
               </li>
               <li class="nav-item align-right">
-                <a class="nav-link" href="<?php echo base_url('kepanitiaan'); ?>"> Kepanitiaan</a>
+                <a class="nav-link" href="/kepanitiaan"> Kepanitiaan</a>
               </li>
               <li class="nav-item align-right">
-                <a class="nav-link" href="<?php echo base_url('event'); ?>"> Event</a>
+                <a class="nav-link" href="/event"> Event</a>
               </li>
               <li class="nav-item align-right">
               </li>

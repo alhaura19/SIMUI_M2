@@ -27,6 +27,7 @@ require_once ('layout/navbar.php');
               <th>Deskripsi Singkat</th>
               <th>Kategori</th>
               <th>Jumlah Pendaftar</th>
+              <th>Poster</th>
               <?php if (isset($_SESSION['type'])) { ?>
                 <th>Options</th>
               <?php } ?>
@@ -47,6 +48,7 @@ require_once ('layout/navbar.php');
                   <td><?php echo $hasil_event->deskripsi_singkat; ?></td>
                   <td><?php echo $hasil_event->nama_kategori; ?></td>
                   <td><?php echo $hasil_event->jumlah_pendaftar; ?></td>
+                  <td><img class="img-thumbnail" src="<?php echo base_url('uploads/poster/'.$hasil_event->poster); ?>" alt=""></td>
                   <?php if (isset($_SESSION['type'])) { ?>
                     <td>
                       <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#edit_event<?=$hasil_event->id_event?>">Edit</button>

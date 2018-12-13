@@ -52,7 +52,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/jquery.datetimepicker.min.css') ?> "/>
 <script src="<?php echo base_url('/assets/js/jquery.datetimepicker.full.min.js') ?> "></script>
 <!--awal JS Untuk table -->
-<script type="text/javascript">
+<script>
 /** JavaScript untuk fungsi alert */
 $(window).bind("load", function() {
   window.setTimeout(function() {
@@ -60,6 +60,12 @@ $(window).bind("load", function() {
       $(this).remove();
     });
   }, 500);
+})
+</script>
+<script>
+$(document).ready(function() {
+	var pathname = window.location.pathname;
+	$('.navbar-nav > li > a[href="'+pathname+'"]').parent().addClass('active');
 })
 </script>
 <!-- akhir JS untu tabel -->
@@ -84,15 +90,10 @@ $('#tanggal').datetimepicker({
   forceParse: 0
 });
 </script>
-<script type="text/javascript">
+<script>
 jQuery('#waktu').datetimepicker({
   datepicker:false,
   format:'H:i'
-});
-</script>
-<script>
-$(function() {
-  $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
 });
 </script>
 </html>

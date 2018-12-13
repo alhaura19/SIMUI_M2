@@ -88,7 +88,7 @@ class Kepanitiaan extends CI_Controller {
 	public function edit_kepanitiaan()
 	{
 
-		if (NULL == $this->input->post('logo')||trim($this->input->post('logo')) == '') {
+		if ($_FILES['logo']['size'] == 0 && $_FILES['logo']['error'] == 0) {
 // jika field file upload tidak berubah / tidak ada isinya
 //update data tanpa mengubah isi tabel logo
 			$id['id'] = $this->input->post("id");
@@ -104,7 +104,7 @@ class Kepanitiaan extends CI_Controller {
 			);
 			$this->m_kepanitiaan->update($data, $id,$id_organisasi_pengawas);
 			$this->session->set_flashdata('info', 'Success! data berhasil diupdate didatabase.');
-			redirect('organisasi');
+			redirect('kepanitiaan');
 		}//jika field poster ada isinya, upload poster baru
 		// upload file poster dulu
 		// setting konfigurasi upload
@@ -119,7 +119,7 @@ class Kepanitiaan extends CI_Controller {
 		if ( ! $this->upload->do_upload('logo'))
 		{
 			$this->session->set_flashdata('info',$this->upload->display_errors('<p>', '</p>'));
-			redirect(base_url('organisasi'));
+			redirect(base_url('kepanitiaan'));
 		}
 
 		$id['id'] = $this->input->post("id");
@@ -132,11 +132,11 @@ class Kepanitiaan extends CI_Controller {
 			'contact_person'    => $this->input->post("contact_person"),
 			'kategori'       		=> $this->input->post("kategori"),
 			'deskripsi'       	=> $this->input->post("deskripsi"),
-			'poster'						=>$this->upload->data("file_name"),
+			'logo'							=>$this->upload->data("file_name"),
 		);
 
 		$this->m_kepanitiaan->update($data, $id, $id_organisasi_pengawas);
-		redirect('organisasi');
+		redirect('kepanitiaan');
 		$this->session->set_flashdata('info', 'Success! data berhasil diupdate didatabase.');
 
 		//redirect
