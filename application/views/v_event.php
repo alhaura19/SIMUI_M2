@@ -221,7 +221,7 @@ require_once ('layout/navbar.php');
                 <label class="form-check-label" for="umum">Umum</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sifat_event" id="private" value="Private" <?php echo ($hasil_event->sifat_event=='Private')?'checked':'' ?>>
+                <input class="form-check-input" type="radio" name="sifat_event" id="private" value="Private" <?php echo ($hasil_event->sifat_event=='Private'||$hasil_event->sifat_event=='Privat')?'checked':'' ?>>
                 <label class="form-check-label" for="private">Private</label>
               </div>
             </div>
