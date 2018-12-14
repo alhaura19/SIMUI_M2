@@ -22,9 +22,8 @@ class Simple_login {
 				$row0 	= $this->CI->db->query("SELECT username FROM simui.admin where username ='".$username."'");
 				$this->CI->session->set_userdata('type', 'Admin');
 			}
-			$query = $this->CI->db->get_where('pendaftaran_event',array('username'=>$username));
+			$query = $this->CI->db->get_where('pembuat_event',array('humas'=>$username));
 			if ($query->num_rows()==1) {
-				$row1 	= $this->CI->db->query("SELECT username FROM simui.pendaftaran_event where username ='".$username."'");
 				$this->CI->session->set_userdata('type', 'Humas');
 			}
 			$this->CI->session->set_flashdata('success','Selamat Datang '.$username);
