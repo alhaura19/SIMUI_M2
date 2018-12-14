@@ -18,9 +18,6 @@ class Kepanitiaan extends CI_Controller {
 			'title'	=> 'Kepanitiaan',
 			'data_kepanitiaan' => $this->m_kepanitiaan->get_kepanitiaan_all(),
 			'dd_organisasi' => $this->m_kepanitiaan->dd_organisasi(),
-			// 'organisasi_selected' => $this->input->post('organisasi')?$this->input->post('organisasi'):$row->organisasi,
-
-
 		);
 		$this->load->helper('form_helper','form','url','date');
 		$this->load->library('upload','form_validation');

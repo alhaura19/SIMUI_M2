@@ -27,7 +27,7 @@
               </li>
             </ul>
             <?php
-            if (isset($_SESSION['type'])) {
+            if (isset($_SESSION['username'])) {
               include ('tombol_logout.php');
             }else {
               include ('tombol_login.php');

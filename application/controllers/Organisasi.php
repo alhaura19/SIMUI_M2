@@ -16,7 +16,6 @@ class Organisasi extends CI_Controller {
 		$data = array(
 			'title'	=> 'Organisasi',
 			'data_organisasi' => $this->m_organisasi->get_organisasi_all(),
-
 		);
 
 		$this->load->helper('form','url','date');
